@@ -39,12 +39,12 @@ jobs:
           DBT_PORT: ${{ secrets.DBT_PORT }}
           DBT_DATABASE: ${{ secrets.DBT_DATABASE }}
         run: |
-          dbt debug
+          dbt debug --project-dir ./dbt/ecommerce
 
       - name: Run DBT Build
         env:
           DBT_PROFILES_DIR: ./dbt
         run: |
-          dbt deps
-          dbt test
-          dbt build
+          dbt deps --project-dir ./dbt/ecommerce
+          dbt test --project-dir ./dbt/ecommerce
+          dbt build --project-dir ./dbt/ecommerce
