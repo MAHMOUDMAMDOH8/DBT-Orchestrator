@@ -1,0 +1,50 @@
+name: DBT CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger pipeline on pushes to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger pipeline on pull requests to the main branch
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3: Install dependencies
+      - name: Install DBT and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install dbt-core dbt-postgres
+
+      # Step 4: Run DBT commands
+      - name: Run DBT Debug
+        env:
+          DBT_PROFILES_DIR: ./dbt/profiles
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+          DBT_HOST: ${{ secrets.DBT_HOST }}
+          DBT_PORT: ${{ secrets.DBT_PORT }}
+          DBT_DATABASE: ${{ secrets.DBT_DATABASE }}
+        run: |
+          dbt debug
+
+      - name: Run DBT Build
+        env:
+          DBT_PROFILES_DIR: ./dbt/profiles
+        run: |
+          dbt deps
+          dbt test
+          dbt build
