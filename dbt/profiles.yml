@@ -1,0 +1,12 @@
+ecommerce:
+  outputs:
+    dev:
+      dbname: ecommerce
+      host: 172.18.0.2
+      pass: 'airflow'
+      port: 5432 
+      schema: olap_model
+      threads: 3
+      type: postgres
+      user: airflow
+  target: dev

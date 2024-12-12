@@ -1,0 +1,34 @@
+[2024-12-11T17:30:19.020+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-11T17:30:19.059+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_brand_dim scheduled__2024-12-11T17:15:00+00:00 [queued]>
+[2024-12-11T17:30:19.074+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_brand_dim scheduled__2024-12-11T17:15:00+00:00 [queued]>
+[2024-12-11T17:30:19.075+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-11T17:30:19.093+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_dimensions.dbt_run_brand_dim> on 2024-12-11 17:15:00+00:00
+[2024-12-11T17:30:19.100+0000] {standard_task_runner.py:63} INFO - Started process 761 to run task
+[2024-12-11T17:30:19.104+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_dimensions.dbt_run_brand_dim', 'scheduled__2024-12-11T17:15:00+00:00', '--job-id', '100', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp89io3i7p']
+[2024-12-11T17:30:19.106+0000] {standard_task_runner.py:91} INFO - Job 100: Subtask dbt_run_dimensions.dbt_run_brand_dim
+[2024-12-11T17:30:19.174+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_brand_dim scheduled__2024-12-11T17:15:00+00:00 [running]> on host 49f8df2c9427
+[2024-12-11T17:30:19.302+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_dimensions.dbt_run_brand_dim' AIRFLOW_CTX_EXECUTION_DATE='2024-12-11T17:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-11T17:15:00+00:00'
+[2024-12-11T17:30:19.304+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-11T17:30:19.324+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-11T17:30:19.324+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models models/olap_model/dimensions/brand_dim']
+[2024-12-11T17:30:19.338+0000] {subprocess.py:86} INFO - Output:
+[2024-12-11T17:30:21.761+0000] {subprocess.py:93} INFO - [0m17:30:21  Running with dbt=1.8.0
+[2024-12-11T17:30:22.041+0000] {subprocess.py:93} INFO - [0m17:30:22  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-11T17:30:22.042+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-11T17:30:22.042+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-11T17:30:22.042+0000] {subprocess.py:93} INFO - information.
+[2024-12-11T17:30:22.260+0000] {subprocess.py:93} INFO - [0m17:30:22  Registered adapter: postgres=1.8.0
+[2024-12-11T17:30:22.827+0000] {subprocess.py:93} INFO - [0m17:30:22  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2024-12-11T17:30:22.828+0000] {subprocess.py:93} INFO - There are 2 unused configuration paths:
+[2024-12-11T17:30:22.828+0000] {subprocess.py:93} INFO - - models.ecommerce.marts.fact
+[2024-12-11T17:30:22.829+0000] {subprocess.py:93} INFO - - models.ecommerce.marts.dimensions
+[2024-12-11T17:30:23.216+0000] {subprocess.py:93} INFO - [0m17:30:23  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-11T17:30:23.223+0000] {subprocess.py:93} INFO - [0m17:30:23  The selection criterion 'models/olap_model/dimensions/brand_dim' does not match any enabled nodes
+[2024-12-11T17:30:23.226+0000] {subprocess.py:93} INFO - [0m17:30:23
+[2024-12-11T17:30:23.227+0000] {subprocess.py:93} INFO - [0m17:30:23  Nothing to do. Try checking your model configs and model specification args
+[2024-12-11T17:30:24.426+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-11T17:30:24.427+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-11T17:30:24.456+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_run_dimensions.dbt_run_brand_dim, run_id=scheduled__2024-12-11T17:15:00+00:00, execution_date=20241211T171500, start_date=20241211T173019, end_date=20241211T173024
+[2024-12-11T17:30:24.491+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-11T17:30:24.522+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-11T17:30:24.523+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

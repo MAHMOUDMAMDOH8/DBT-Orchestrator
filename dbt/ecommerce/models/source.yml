@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: ecommerce_oltp
+    database: ecommerce
+    schema: oltp
+    tables:
+      - name: orders
+      - name: order_details
+      - name: Customers
+      - name: products
+      - name: Categorys
+      - name: Subcategorys
+      - name: Brand
+      - name: product_brand
+      - name: Store
+      - name: product_store
+      - name: Suppliers
+      - name: Supplier_product

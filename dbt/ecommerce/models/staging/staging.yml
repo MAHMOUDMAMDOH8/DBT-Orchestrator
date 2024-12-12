@@ -1,0 +1,299 @@
+version: 2
+
+models:
+
+  - name: stg_customers
+    description: "customers data come form pgdb ecommerce"
+    columns:
+      - name: customer_id
+        description: "primary key for customers"
+        data_type: int 
+        data_tests:
+          - not_null
+
+      - name: Name
+        description: "concat f_name and l_name thats come from pgdb "
+        data_type: varchar(50)
+        data_tests: 
+          - not_null
+
+      - name: gender
+        description: "gender for customer"
+        data_type: varchar(10)
+        data_tests:
+          - gender_is_valid
+
+      - name: zip_code
+        description: "postal code for customers"
+        data_type: varchar(50)
+
+      - name: age
+        description: "age for customers "
+        data_type: int
+        data_tests:
+          - greater_than_zero
+
+      - name: country
+        description: "country for csutomer"
+        data_type: varchar(50)
+
+      - name: city
+        description: "city for cutomers"
+        data_type: varchar(50)
+
+      - name: account_id
+        description: "acount id come from pgdb "
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+  - name: stg_suppliers
+    description: "suppliers data come from pgdb"
+    coulmns:
+      - name: Supplier_ID 
+        description: "unique key for supplier"
+        data_type: int
+        data_tests: 
+          - not_null
+          - unique
+
+      - name: supplier_name
+        description: "name of supplier"
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: location 
+        description: "location of supplier"
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+  - name: stg_product
+    description: "Staging table for product data imported from pgdb, used for downstream analytics."
+    columns:
+      - name: Product_ID
+        description: "Unique identifier for each product."
+        data_type: "integer"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: Product_name
+        description: "Name of the product."
+        data_type: "text"
+        data_tests:
+          - not_null
+
+      - name: Subcategory_name
+        description: "Name of the subcategory to which the product belongs."
+        data_type: "text"
+
+      - name: Category_name
+        description: "Name of the category to which the product belongs."
+        data_type: "text"
+
+      - name: price
+        description: "Price of the product."
+        data_type: "numeric"
+        data_tests:
+          - not_null
+
+      - name: cost
+        description: "Cost of the product."
+        data_type: "numeric"
+        data_tests:
+          - not_null
+
+  - name: stg_brand
+    description:  "Staging table for brand data, sourced from the ecommerce_oltp database."
+    columns:
+      - name: Brand_ID
+        description: "id for brand"
+        data_type: int
+        data_tests:
+          - not_null
+          - unique
+
+      - name: brand_name
+        description: "beand name "
+        data_type: varchar(50)
+        data_tests: 
+          - not_null
+
+      - name: brand_country
+        description:  "The country where the brand originated."
+        data_type: varchar(50)
+
+      - name: start_date
+        description: "The date when the brand was established."
+        data_type: date
+
+
+  - name: stg_store
+    description: "Staging table for store data, sourced from the ecommerce_oltp database."
+    columns:
+      - name: Store_ID
+        description: "Unique identifier for each store."
+        data_type: int
+        data_tests:
+          - not_null
+          - unique
+
+      - name: store_name
+        description: "Name of the store."
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: region
+        description: "Geographical region where the store is located."
+        data_type: varchar(50)
+  - name: stg_date
+    description: "staging table come from pgdb"
+    columns:
+      - name: date_sk
+        description: "unique key "
+        data_type: varchar(30)
+        data_tests: 
+          - unique
+          - not_null
+
+      - name: full_date
+        description: "full date"
+        data_type: date
+        data_tests:
+          - unique
+          - not_null
+
+      - name: year
+        description: "year of date"
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: month 
+        description: "month "
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: day
+        description: "day"
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: month_name
+        description: "name of the month"
+        data_type: varchar(15)
+        data_tests:
+          - not_null
+
+      - name: day_name
+        description: "name of the day"
+        data_type: varchar(15)
+        data_tests:
+          - not_null
+
+  - name: stg_order
+    description: >
+      This model processes and transforms order data from the source system (`ecommerce_oltp.orders`), ensuring only complete and valid records are included.
+      It appends new records during incremental runs and is optimized with indexes on `order_id` and `customer_id`.
+    columns:
+      - name: order_id
+        description: >
+          The unique identifier for each order. Used as the primary key for incremental updates.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: >
+          The unique identifier for the customer who placed the order.
+        data_tests:
+          - not_null
+
+      - name: order_date
+        description: >
+          The date when the order was placed. Must always be a valid date.
+        data_tests:
+          - not_null
+
+      - name: shipping_method
+        description: >
+          The method used to ship the order (e.g., standard, express, etc.).
+        data_tests:
+          - not_null
+
+      - name: payment_method
+        description: >
+          The payment method used for the order (e.g., credit card, PayPal).
+        data_tests:
+          - not_null
+
+      - name: sub_total
+        description: >
+          The total amount before taxes and other charges.
+        data_tests:
+          - not_null
+          - greater_than_zero
+
+      - name: total_tax
+        description: >
+          The total tax applied to the order.
+        data_tests:
+          - not_null
+
+      - name: total_freight
+        description: >
+          The total freight cost for the order shipment.
+        data_tests:
+          - not_null
+
+      - name: total_due
+        description: >
+          The final amount due for the order, including taxes and freight costs.
+        data_tests:
+          - not_null
+          - greater_than_zero
+
+  - name: stg_order_details
+    description: >
+      This model transforms and prepares detailed order data from the source table (`ecommerce_oltp.order_details`).
+      The model ensures that only complete and valid records are included and uses an incremental materialization strategy optimized with indexes on `order_detail_id` and `product_id`.
+    columns:
+      - name: order_detail_id
+        description: >
+          The unique identifier for each order detail. Used as the primary key for incremental updates.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: quantity
+        description: >
+          The quantity of the product in the order.
+        data_tests:
+          - not_null
+
+      - name: order_id
+        description: >
+          The unique identifier for the order to which this detail belongs.
+        data_tests:
+          - not_null
+
+      - name: product_id
+        description: >
+          The unique identifier for the product in this order detail.
+        data_tests:
+          - not_null
+
+      - name: line_total
+        description: >
+          The total price for this order detail line, calculated as quantity multiplied by the unit price.
+        data_tests:
+          - not_null
+          - greater_than_zero
+
+
+          

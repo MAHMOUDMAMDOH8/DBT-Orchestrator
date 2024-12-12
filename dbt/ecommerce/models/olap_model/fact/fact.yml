@@ -1,0 +1,114 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: "Fact table containing sales data, linking order details with orders, products, and stores."
+    columns:
+      - name: transaction_id
+        description: "Unique transaction ID generated for each sale"
+        tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: "The ID of the order this sale is associated with."
+        tests:
+          - not_null
+
+      - name: date_sk
+        description: "The date surrogate key representing the order date."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('data_dim')
+              field: date_sk
+
+      - name: customer_sk
+        description: "The surrogate key for the customer making the purchase."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('customer_dim')
+              field: customer_sk
+
+      - name: shipping_method
+        description: "The shipping method used for the order."
+        tests:
+          - not_null
+
+      - name: shipping_city
+        description: "The city where the order is being shipped to."
+        tests:
+          - not_null
+
+      - name: payment_method
+        description: "The payment method used for the order."
+        tests:
+          - not_null
+
+      - name: sub_total
+        description: "The subtotal value of the order before tax and shipping."
+        tests:
+          - not_null
+
+      - name: total_tax
+        description: "The total tax applied to the order."
+        tests:
+          - not_null
+
+      - name: total_freight
+        description: "The total freight cost of the order."
+        tests:
+          - not_null
+
+      - name: total_due
+        description: "The total amount due for the order, including subtotal, tax, and freight."
+        tests:
+          - not_null
+
+      - name: order_detail_id
+        description: "Unique ID for the order detail, linking individual products to an order."
+        tests:
+          - not_null
+
+      - name: product_sk
+        description: "The surrogate key for the product being sold."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('product_dim')
+              field: product_sk
+
+      - name: supplier_sk
+        description: "The surrogate key for the supplier providing the product."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('supplier_dim')
+              field: supplier_sk
+
+      - name: brand_sk
+        description: "The surrogate key for the product's brand."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('brand_dim')
+              field: brand_sk
+
+      - name: store_sk
+        description: "The surrogate key for the store where the product was sold."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('store_dim')
+              field: store_sk
+
+      - name: quantity
+        description: "The quantity of the product purchased in this order detail."
+        tests:
+          - not_null
+
+      - name: line_total
+        description: "The total value of the line item (quantity * price)."
+        tests:
+          - not_null

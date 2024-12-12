@@ -1,0 +1,627 @@
+[2024-12-12T08:30:35.728+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:30:35.752+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_test scheduled__2024-12-12T08:15:00+00:00 [queued]>
+[2024-12-12T08:30:35.763+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_test scheduled__2024-12-12T08:15:00+00:00 [queued]>
+[2024-12-12T08:30:35.764+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-12T08:30:35.776+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test> on 2024-12-12 08:15:00+00:00
+[2024-12-12T08:30:35.783+0000] {standard_task_runner.py:63} INFO - Started process 1054 to run task
+[2024-12-12T08:30:35.786+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_test', 'scheduled__2024-12-12T08:15:00+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpc7kssv1d']
+[2024-12-12T08:30:35.787+0000] {standard_task_runner.py:91} INFO - Job 254: Subtask dbt_test
+[2024-12-12T08:30:35.836+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_test scheduled__2024-12-12T08:15:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:30:35.923+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T08:15:00+00:00'
+[2024-12-12T08:30:35.925+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:30:35.938+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:30:35.939+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt test --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-12T08:30:35.953+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:30:37.728+0000] {subprocess.py:93} INFO - [0m08:30:37  Running with dbt=1.8.0
+[2024-12-12T08:30:37.859+0000] {subprocess.py:93} INFO - [0m08:30:37  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:30:37.859+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:30:37.860+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:30:37.860+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:30:38.017+0000] {subprocess.py:93} INFO - [0m08:30:38  Registered adapter: postgres=1.8.0
+[2024-12-12T08:30:38.734+0000] {subprocess.py:93} INFO - [0m08:30:38  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:30:38.743+0000] {subprocess.py:93} INFO - [0m08:30:38
+[2024-12-12T08:30:39.016+0000] {subprocess.py:93} INFO - [0m08:30:39  Concurrency: 3 threads (target='dev')
+[2024-12-12T08:30:39.017+0000] {subprocess.py:93} INFO - [0m08:30:39
+[2024-12-12T08:30:39.023+0000] {subprocess.py:93} INFO - [0m08:30:39  1 of 112 START test gender_is_valid_stg_customers_gender ....................... [RUN]
+[2024-12-12T08:30:39.026+0000] {subprocess.py:93} INFO - [0m08:30:39  2 of 112 START test greater_than_zero_stg_customers_age ........................ [RUN]
+[2024-12-12T08:30:39.027+0000] {subprocess.py:93} INFO - [0m08:30:39  3 of 112 START test greater_than_zero_stg_order_details_line_total ............. [RUN]
+[2024-12-12T08:30:39.246+0000] {subprocess.py:93} INFO - [0m08:30:39  2 of 112 PASS greater_than_zero_stg_customers_age .............................. [[32mPASS[0m in 0.22s]
+[2024-12-12T08:30:39.249+0000] {subprocess.py:93} INFO - [0m08:30:39  3 of 112 PASS greater_than_zero_stg_order_details_line_total ................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:30:39.255+0000] {subprocess.py:93} INFO - [0m08:30:39  1 of 112 WARN 109 gender_is_valid_stg_customers_gender ......................... [[33mWARN 109[0m in 0.23s]
+[2024-12-12T08:30:39.255+0000] {subprocess.py:93} INFO - [0m08:30:39  4 of 112 START test greater_than_zero_stg_order_sub_total ...................... [RUN]
+[2024-12-12T08:30:39.256+0000] {subprocess.py:93} INFO - [0m08:30:39  5 of 112 START test greater_than_zero_stg_order_total_due ...................... [RUN]
+[2024-12-12T08:30:39.261+0000] {subprocess.py:93} INFO - [0m08:30:39  6 of 112 START test not_null_brand_dim_brand_country ........................... [RUN]
+[2024-12-12T08:30:39.351+0000] {subprocess.py:93} INFO - [0m08:30:39  6 of 112 ERROR not_null_brand_dim_brand_country ................................ [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:39.357+0000] {subprocess.py:93} INFO - [0m08:30:39  7 of 112 START test not_null_brand_dim_brand_id ................................ [RUN]
+[2024-12-12T08:30:39.392+0000] {subprocess.py:93} INFO - [0m08:30:39  5 of 112 PASS greater_than_zero_stg_order_total_due ............................ [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:39.395+0000] {subprocess.py:93} INFO - [0m08:30:39  4 of 112 PASS greater_than_zero_stg_order_sub_total ............................ [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:39.398+0000] {subprocess.py:93} INFO - [0m08:30:39  8 of 112 START test not_null_brand_dim_brand_name .............................. [RUN]
+[2024-12-12T08:30:39.401+0000] {subprocess.py:93} INFO - [0m08:30:39  9 of 112 START test not_null_brand_dim_brand_sk ................................ [RUN]
+[2024-12-12T08:30:39.514+0000] {subprocess.py:93} INFO - [0m08:30:39  7 of 112 ERROR not_null_brand_dim_brand_id ..................................... [[31mERROR[0m in 0.15s]
+[2024-12-12T08:30:39.522+0000] {subprocess.py:93} INFO - [0m08:30:39  10 of 112 START test not_null_brand_dim_data_source ............................ [RUN]
+[2024-12-12T08:30:39.565+0000] {subprocess.py:93} INFO - [0m08:30:39  9 of 112 ERROR not_null_brand_dim_brand_sk ..................................... [[31mERROR[0m in 0.16s]
+[2024-12-12T08:30:39.566+0000] {subprocess.py:93} INFO - [0m08:30:39  8 of 112 ERROR not_null_brand_dim_brand_name ................................... [[31mERROR[0m in 0.17s]
+[2024-12-12T08:30:39.575+0000] {subprocess.py:93} INFO - [0m08:30:39  11 of 112 START test not_null_brand_dim_start_date ............................. [RUN]
+[2024-12-12T08:30:39.576+0000] {subprocess.py:93} INFO - [0m08:30:39  12 of 112 START test not_null_customer_dim_account_id .......................... [RUN]
+[2024-12-12T08:30:39.626+0000] {subprocess.py:93} INFO - [0m08:30:39  10 of 112 ERROR not_null_brand_dim_data_source ................................. [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:39.629+0000] {subprocess.py:93} INFO - [0m08:30:39  13 of 112 START test not_null_customer_dim_age ................................. [RUN]
+[2024-12-12T08:30:39.669+0000] {subprocess.py:93} INFO - [0m08:30:39  11 of 112 ERROR not_null_brand_dim_start_date .................................. [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:39.675+0000] {subprocess.py:93} INFO - [0m08:30:39  12 of 112 ERROR not_null_customer_dim_account_id ............................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:39.678+0000] {subprocess.py:93} INFO - [0m08:30:39  14 of 112 START test not_null_customer_dim_customer_sk ......................... [RUN]
+[2024-12-12T08:30:39.681+0000] {subprocess.py:93} INFO - [0m08:30:39  15 of 112 START test not_null_customer_dim_data_source ......................... [RUN]
+[2024-12-12T08:30:39.754+0000] {subprocess.py:93} INFO - [0m08:30:39  13 of 112 ERROR not_null_customer_dim_age ...................................... [[31mERROR[0m in 0.12s]
+[2024-12-12T08:30:39.761+0000] {subprocess.py:93} INFO - [0m08:30:39  16 of 112 START test not_null_customer_dim_gender .............................. [RUN]
+[2024-12-12T08:30:39.796+0000] {subprocess.py:93} INFO - [0m08:30:39  14 of 112 ERROR not_null_customer_dim_customer_sk .............................. [[31mERROR[0m in 0.12s]
+[2024-12-12T08:30:39.798+0000] {subprocess.py:93} INFO - [0m08:30:39  17 of 112 START test not_null_customer_dim_name ................................ [RUN]
+[2024-12-12T08:30:39.802+0000] {subprocess.py:93} INFO - [0m08:30:39  15 of 112 ERROR not_null_customer_dim_data_source .............................. [[31mERROR[0m in 0.12s]
+[2024-12-12T08:30:39.813+0000] {subprocess.py:93} INFO - [0m08:30:39  18 of 112 START test not_null_data_dim_date_sk ................................. [RUN]
+[2024-12-12T08:30:39.855+0000] {subprocess.py:93} INFO - [0m08:30:39  16 of 112 ERROR not_null_customer_dim_gender ................................... [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:39.861+0000] {subprocess.py:93} INFO - [0m08:30:39  19 of 112 START test not_null_data_dim_day ..................................... [RUN]
+[2024-12-12T08:30:39.889+0000] {subprocess.py:93} INFO - [0m08:30:39  17 of 112 ERROR not_null_customer_dim_name ..................................... [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:39.897+0000] {subprocess.py:93} INFO - [0m08:30:39  20 of 112 START test not_null_data_dim_day_name ................................ [RUN]
+[2024-12-12T08:30:39.914+0000] {subprocess.py:93} INFO - [0m08:30:39  18 of 112 ERROR not_null_data_dim_date_sk ...................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:39.927+0000] {subprocess.py:93} INFO - [0m08:30:39  21 of 112 START test not_null_data_dim_full_date ............................... [RUN]
+[2024-12-12T08:30:39.961+0000] {subprocess.py:93} INFO - [0m08:30:39  19 of 112 ERROR not_null_data_dim_day .......................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:39.966+0000] {subprocess.py:93} INFO - [0m08:30:39  22 of 112 START test not_null_data_dim_month ................................... [RUN]
+[2024-12-12T08:30:39.981+0000] {subprocess.py:93} INFO - [0m08:30:39  20 of 112 ERROR not_null_data_dim_day_name ..................................... [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:39.999+0000] {subprocess.py:93} INFO - [0m08:30:39  23 of 112 START test not_null_data_dim_month_name .............................. [RUN]
+[2024-12-12T08:30:40.034+0000] {subprocess.py:93} INFO - [0m08:30:40  21 of 112 ERROR not_null_data_dim_full_date .................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.041+0000] {subprocess.py:93} INFO - [0m08:30:40  24 of 112 START test not_null_data_dim_year .................................... [RUN]
+[2024-12-12T08:30:40.080+0000] {subprocess.py:93} INFO - [0m08:30:40  22 of 112 ERROR not_null_data_dim_month ........................................ [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.084+0000] {subprocess.py:93} INFO - [0m08:30:40  25 of 112 START test not_null_fact_sales_brand_sk .............................. [RUN]
+[2024-12-12T08:30:40.102+0000] {subprocess.py:93} INFO - [0m08:30:40  23 of 112 ERROR not_null_data_dim_month_name ................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.116+0000] {subprocess.py:93} INFO - [0m08:30:40  26 of 112 START test not_null_fact_sales_customer_sk ........................... [RUN]
+[2024-12-12T08:30:40.152+0000] {subprocess.py:93} INFO - [0m08:30:40  24 of 112 ERROR not_null_data_dim_year ......................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.161+0000] {subprocess.py:93} INFO - [0m08:30:40  27 of 112 START test not_null_fact_sales_date_sk ............................... [RUN]
+[2024-12-12T08:30:40.196+0000] {subprocess.py:93} INFO - [0m08:30:40  25 of 112 ERROR not_null_fact_sales_brand_sk ................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.203+0000] {subprocess.py:93} INFO - [0m08:30:40  28 of 112 START test not_null_fact_sales_line_total ............................ [RUN]
+[2024-12-12T08:30:40.219+0000] {subprocess.py:93} INFO - [0m08:30:40  26 of 112 ERROR not_null_fact_sales_customer_sk ................................ [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.236+0000] {subprocess.py:93} INFO - [0m08:30:40  29 of 112 START test not_null_fact_sales_order_detail_id ....................... [RUN]
+[2024-12-12T08:30:40.267+0000] {subprocess.py:93} INFO - [0m08:30:40  27 of 112 ERROR not_null_fact_sales_date_sk .................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.274+0000] {subprocess.py:93} INFO - [0m08:30:40  30 of 112 START test not_null_fact_sales_order_id .............................. [RUN]
+[2024-12-12T08:30:40.311+0000] {subprocess.py:93} INFO - [0m08:30:40  28 of 112 ERROR not_null_fact_sales_line_total ................................. [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.319+0000] {subprocess.py:93} INFO - [0m08:30:40  31 of 112 START test not_null_fact_sales_payment_method ........................ [RUN]
+[2024-12-12T08:30:40.349+0000] {subprocess.py:93} INFO - [0m08:30:40  29 of 112 ERROR not_null_fact_sales_order_detail_id ............................ [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.355+0000] {subprocess.py:93} INFO - [0m08:30:40  32 of 112 START test not_null_fact_sales_product_sk ............................ [RUN]
+[2024-12-12T08:30:40.373+0000] {subprocess.py:93} INFO - [0m08:30:40  30 of 112 ERROR not_null_fact_sales_order_id ................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.389+0000] {subprocess.py:93} INFO - [0m08:30:40  33 of 112 START test not_null_fact_sales_quantity .............................. [RUN]
+[2024-12-12T08:30:40.418+0000] {subprocess.py:93} INFO - [0m08:30:40  31 of 112 ERROR not_null_fact_sales_payment_method ............................. [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.429+0000] {subprocess.py:93} INFO - [0m08:30:40  34 of 112 START test not_null_fact_sales_shipping_city ......................... [RUN]
+[2024-12-12T08:30:40.538+0000] {subprocess.py:93} INFO - [0m08:30:40  32 of 112 ERROR not_null_fact_sales_product_sk ................................. [[31mERROR[0m in 0.18s]
+[2024-12-12T08:30:40.543+0000] {subprocess.py:93} INFO - [0m08:30:40  35 of 112 START test not_null_fact_sales_shipping_method ....................... [RUN]
+[2024-12-12T08:30:40.559+0000] {subprocess.py:93} INFO - [0m08:30:40  33 of 112 ERROR not_null_fact_sales_quantity ................................... [[31mERROR[0m in 0.17s]
+[2024-12-12T08:30:40.579+0000] {subprocess.py:93} INFO - [0m08:30:40  36 of 112 START test not_null_fact_sales_store_sk .............................. [RUN]
+[2024-12-12T08:30:40.613+0000] {subprocess.py:93} INFO - [0m08:30:40  34 of 112 ERROR not_null_fact_sales_shipping_city .............................. [[31mERROR[0m in 0.18s]
+[2024-12-12T08:30:40.619+0000] {subprocess.py:93} INFO - [0m08:30:40  37 of 112 START test not_null_fact_sales_sub_total ............................. [RUN]
+[2024-12-12T08:30:40.656+0000] {subprocess.py:93} INFO - [0m08:30:40  35 of 112 ERROR not_null_fact_sales_shipping_method ............................ [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.662+0000] {subprocess.py:93} INFO - [0m08:30:40  38 of 112 START test not_null_fact_sales_supplier_sk ........................... [RUN]
+[2024-12-12T08:30:40.694+0000] {subprocess.py:93} INFO - [0m08:30:40  36 of 112 ERROR not_null_fact_sales_store_sk ................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.701+0000] {subprocess.py:93} INFO - [0m08:30:40  39 of 112 START test not_null_fact_sales_total_due ............................. [RUN]
+[2024-12-12T08:30:40.732+0000] {subprocess.py:93} INFO - [0m08:30:40  37 of 112 ERROR not_null_fact_sales_sub_total .................................. [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:40.737+0000] {subprocess.py:93} INFO - [0m08:30:40  40 of 112 START test not_null_fact_sales_total_freight ......................... [RUN]
+[2024-12-12T08:30:40.758+0000] {subprocess.py:93} INFO - [0m08:30:40  38 of 112 ERROR not_null_fact_sales_supplier_sk ................................ [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:40.772+0000] {subprocess.py:93} INFO - [0m08:30:40  41 of 112 START test not_null_fact_sales_total_tax ............................. [RUN]
+[2024-12-12T08:30:40.802+0000] {subprocess.py:93} INFO - [0m08:30:40  39 of 112 ERROR not_null_fact_sales_total_due .................................. [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.808+0000] {subprocess.py:93} INFO - [0m08:30:40  42 of 112 START test not_null_fact_sales_transaction_id ........................ [RUN]
+[2024-12-12T08:30:40.842+0000] {subprocess.py:93} INFO - [0m08:30:40  40 of 112 ERROR not_null_fact_sales_total_freight .............................. [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.846+0000] {subprocess.py:93} INFO - [0m08:30:40  43 of 112 START test not_null_product_dim_cost ................................. [RUN]
+[2024-12-12T08:30:40.861+0000] {subprocess.py:93} INFO - [0m08:30:40  41 of 112 ERROR not_null_fact_sales_total_tax .................................. [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:40.874+0000] {subprocess.py:93} INFO - [0m08:30:40  44 of 112 START test not_null_product_dim_data_source .......................... [RUN]
+[2024-12-12T08:30:40.892+0000] {subprocess.py:93} INFO - [0m08:30:40  42 of 112 ERROR not_null_fact_sales_transaction_id ............................. [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:40.911+0000] {subprocess.py:93} INFO - [0m08:30:40  45 of 112 START test not_null_product_dim_price ................................ [RUN]
+[2024-12-12T08:30:40.952+0000] {subprocess.py:93} INFO - [0m08:30:40  43 of 112 ERROR not_null_product_dim_cost ...................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.958+0000] {subprocess.py:93} INFO - [0m08:30:40  46 of 112 START test not_null_product_dim_product_id ........................... [RUN]
+[2024-12-12T08:30:40.973+0000] {subprocess.py:93} INFO - [0m08:30:40  44 of 112 ERROR not_null_product_dim_data_source ............................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:40.987+0000] {subprocess.py:93} INFO - [0m08:30:40  47 of 112 START test not_null_product_dim_product_name ......................... [RUN]
+[2024-12-12T08:30:41.017+0000] {subprocess.py:93} INFO - [0m08:30:41  45 of 112 ERROR not_null_product_dim_price ..................................... [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:41.022+0000] {subprocess.py:93} INFO - [0m08:30:41  48 of 112 START test not_null_product_dim_product_sk ........................... [RUN]
+[2024-12-12T08:30:41.054+0000] {subprocess.py:93} INFO - [0m08:30:41  46 of 112 ERROR not_null_product_dim_product_id ................................ [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:41.058+0000] {subprocess.py:93} INFO - [0m08:30:41  49 of 112 START test not_null_stg_brand_Brand_ID ............................... [RUN]
+[2024-12-12T08:30:41.073+0000] {subprocess.py:93} INFO - [0m08:30:41  47 of 112 ERROR not_null_product_dim_product_name .............................. [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:41.086+0000] {subprocess.py:93} INFO - [0m08:30:41  50 of 112 START test not_null_stg_brand_brand_name ............................. [RUN]
+[2024-12-12T08:30:41.121+0000] {subprocess.py:93} INFO - [0m08:30:41  48 of 112 ERROR not_null_product_dim_product_sk ................................ [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:41.126+0000] {subprocess.py:93} INFO - [0m08:30:41  51 of 112 START test not_null_stg_customers_Name ............................... [RUN]
+[2024-12-12T08:30:41.176+0000] {subprocess.py:93} INFO - [0m08:30:41  49 of 112 PASS not_null_stg_brand_Brand_ID ..................................... [[32mPASS[0m in 0.12s]
+[2024-12-12T08:30:41.182+0000] {subprocess.py:93} INFO - [0m08:30:41  52 of 112 START test not_null_stg_customers_account_id ......................... [RUN]
+[2024-12-12T08:30:41.221+0000] {subprocess.py:93} INFO - [0m08:30:41  50 of 112 PASS not_null_stg_brand_brand_name ................................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:41.226+0000] {subprocess.py:93} INFO - [0m08:30:41  53 of 112 START test not_null_stg_customers_customer_id ........................ [RUN]
+[2024-12-12T08:30:41.263+0000] {subprocess.py:93} INFO - [0m08:30:41  51 of 112 PASS not_null_stg_customers_Name ..................................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:41.269+0000] {subprocess.py:93} INFO - [0m08:30:41  54 of 112 START test not_null_stg_date_date_sk ................................. [RUN]
+[2024-12-12T08:30:41.317+0000] {subprocess.py:93} INFO - [0m08:30:41  52 of 112 PASS not_null_stg_customers_account_id ............................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:41.325+0000] {subprocess.py:93} INFO - [0m08:30:41  55 of 112 START test not_null_stg_date_day ..................................... [RUN]
+[2024-12-12T08:30:41.365+0000] {subprocess.py:93} INFO - [0m08:30:41  53 of 112 PASS not_null_stg_customers_customer_id .............................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:41.376+0000] {subprocess.py:93} INFO - [0m08:30:41  56 of 112 START test not_null_stg_date_day_name ................................ [RUN]
+[2024-12-12T08:30:41.380+0000] {subprocess.py:93} INFO - [0m08:30:41  54 of 112 PASS not_null_stg_date_date_sk ....................................... [[32mPASS[0m in 0.11s]
+[2024-12-12T08:30:41.393+0000] {subprocess.py:93} INFO - [0m08:30:41  57 of 112 START test not_null_stg_date_full_date ............................... [RUN]
+[2024-12-12T08:30:41.464+0000] {subprocess.py:93} INFO - [0m08:30:41  55 of 112 PASS not_null_stg_date_day ........................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:41.472+0000] {subprocess.py:93} INFO - [0m08:30:41  58 of 112 START test not_null_stg_date_month ................................... [RUN]
+[2024-12-12T08:30:41.528+0000] {subprocess.py:93} INFO - [0m08:30:41  56 of 112 PASS not_null_stg_date_day_name ...................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:41.536+0000] {subprocess.py:93} INFO - [0m08:30:41  59 of 112 START test not_null_stg_date_month_name .............................. [RUN]
+[2024-12-12T08:30:41.562+0000] {subprocess.py:93} INFO - [0m08:30:41  57 of 112 PASS not_null_stg_date_full_date ..................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:30:41.573+0000] {subprocess.py:93} INFO - [0m08:30:41  60 of 112 START test not_null_stg_date_year .................................... [RUN]
+[2024-12-12T08:30:41.699+0000] {subprocess.py:93} INFO - [0m08:30:41  58 of 112 PASS not_null_stg_date_month ......................................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:30:41.707+0000] {subprocess.py:93} INFO - [0m08:30:41  61 of 112 START test not_null_stg_order_customer_id ............................ [RUN]
+[2024-12-12T08:30:41.768+0000] {subprocess.py:93} INFO - [0m08:30:41  59 of 112 PASS not_null_stg_date_month_name .................................... [[32mPASS[0m in 0.23s]
+[2024-12-12T08:30:41.775+0000] {subprocess.py:93} INFO - [0m08:30:41  62 of 112 START test not_null_stg_order_details_line_total ..................... [RUN]
+[2024-12-12T08:30:41.791+0000] {subprocess.py:93} INFO - [0m08:30:41  60 of 112 PASS not_null_stg_date_year .......................................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:30:41.805+0000] {subprocess.py:93} INFO - [0m08:30:41  63 of 112 START test not_null_stg_order_details_order_detail_id ................ [RUN]
+[2024-12-12T08:30:41.853+0000] {subprocess.py:93} INFO - [0m08:30:41  61 of 112 PASS not_null_stg_order_customer_id .................................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:41.864+0000] {subprocess.py:93} INFO - [0m08:30:41  64 of 112 START test not_null_stg_order_details_order_id ....................... [RUN]
+[2024-12-12T08:30:41.911+0000] {subprocess.py:93} INFO - [0m08:30:41  62 of 112 PASS not_null_stg_order_details_line_total ........................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:41.920+0000] {subprocess.py:93} INFO - [0m08:30:41  65 of 112 START test not_null_stg_order_details_product_id ..................... [RUN]
+[2024-12-12T08:30:41.959+0000] {subprocess.py:93} INFO - [0m08:30:41  63 of 112 PASS not_null_stg_order_details_order_detail_id ...................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:41.967+0000] {subprocess.py:93} INFO - [0m08:30:41  66 of 112 START test not_null_stg_order_details_quantity ....................... [RUN]
+[2024-12-12T08:30:42.004+0000] {subprocess.py:93} INFO - [0m08:30:42  64 of 112 PASS not_null_stg_order_details_order_id ............................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.012+0000] {subprocess.py:93} INFO - [0m08:30:42  67 of 112 START test not_null_stg_order_order_date ............................. [RUN]
+[2024-12-12T08:30:42.055+0000] {subprocess.py:93} INFO - [0m08:30:42  65 of 112 PASS not_null_stg_order_details_product_id ........................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:42.063+0000] {subprocess.py:93} INFO - [0m08:30:42  68 of 112 START test not_null_stg_order_order_id ............................... [RUN]
+[2024-12-12T08:30:42.108+0000] {subprocess.py:93} INFO - [0m08:30:42  66 of 112 PASS not_null_stg_order_details_quantity ............................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.116+0000] {subprocess.py:93} INFO - [0m08:30:42  69 of 112 START test not_null_stg_order_payment_method ......................... [RUN]
+[2024-12-12T08:30:42.163+0000] {subprocess.py:93} INFO - [0m08:30:42  67 of 112 PASS not_null_stg_order_order_date ................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.171+0000] {subprocess.py:93} INFO - [0m08:30:42  70 of 112 START test not_null_stg_order_shipping_method ........................ [RUN]
+[2024-12-12T08:30:42.219+0000] {subprocess.py:93} INFO - [0m08:30:42  68 of 112 PASS not_null_stg_order_order_id ..................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.225+0000] {subprocess.py:93} INFO - [0m08:30:42  71 of 112 START test not_null_stg_order_sub_total .............................. [RUN]
+[2024-12-12T08:30:42.272+0000] {subprocess.py:93} INFO - [0m08:30:42  69 of 112 PASS not_null_stg_order_payment_method ............................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.278+0000] {subprocess.py:93} INFO - [0m08:30:42  72 of 112 START test not_null_stg_order_total_due .............................. [RUN]
+[2024-12-12T08:30:42.312+0000] {subprocess.py:93} INFO - [0m08:30:42  70 of 112 PASS not_null_stg_order_shipping_method .............................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.322+0000] {subprocess.py:93} INFO - [0m08:30:42  73 of 112 START test not_null_stg_order_total_freight .......................... [RUN]
+[2024-12-12T08:30:42.374+0000] {subprocess.py:93} INFO - [0m08:30:42  71 of 112 PASS not_null_stg_order_sub_total .................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.380+0000] {subprocess.py:93} INFO - [0m08:30:42  74 of 112 START test not_null_stg_order_total_tax .............................. [RUN]
+[2024-12-12T08:30:42.420+0000] {subprocess.py:93} INFO - [0m08:30:42  72 of 112 PASS not_null_stg_order_total_due .................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.428+0000] {subprocess.py:93} INFO - [0m08:30:42  75 of 112 START test not_null_stg_product_Product_ID ........................... [RUN]
+[2024-12-12T08:30:42.470+0000] {subprocess.py:93} INFO - [0m08:30:42  73 of 112 PASS not_null_stg_order_total_freight ................................ [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.477+0000] {subprocess.py:93} INFO - [0m08:30:42  76 of 112 START test not_null_stg_product_Product_name ......................... [RUN]
+[2024-12-12T08:30:42.513+0000] {subprocess.py:93} INFO - [0m08:30:42  74 of 112 PASS not_null_stg_order_total_tax .................................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:42.521+0000] {subprocess.py:93} INFO - [0m08:30:42  77 of 112 START test not_null_stg_product_cost ................................. [RUN]
+[2024-12-12T08:30:42.560+0000] {subprocess.py:93} INFO - [0m08:30:42  75 of 112 PASS not_null_stg_product_Product_ID ................................. [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:42.563+0000] {subprocess.py:93} INFO - [0m08:30:42  78 of 112 START test not_null_stg_product_price ................................ [RUN]
+[2024-12-12T08:30:42.603+0000] {subprocess.py:93} INFO - [0m08:30:42  76 of 112 PASS not_null_stg_product_Product_name ............................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:42.611+0000] {subprocess.py:93} INFO - [0m08:30:42  79 of 112 START test not_null_stg_store_Store_ID ............................... [RUN]
+[2024-12-12T08:30:42.663+0000] {subprocess.py:93} INFO - [0m08:30:42  77 of 112 PASS not_null_stg_product_cost ....................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.672+0000] {subprocess.py:93} INFO - [0m08:30:42  80 of 112 START test not_null_stg_store_store_name ............................. [RUN]
+[2024-12-12T08:30:42.705+0000] {subprocess.py:93} INFO - [0m08:30:42  78 of 112 PASS not_null_stg_product_price ...................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:42.710+0000] {subprocess.py:93} INFO - [0m08:30:42  81 of 112 START test not_null_store_dim_data_source ............................ [RUN]
+[2024-12-12T08:30:42.760+0000] {subprocess.py:93} INFO - [0m08:30:42  79 of 112 PASS not_null_stg_store_Store_ID ..................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.766+0000] {subprocess.py:93} INFO - [0m08:30:42  82 of 112 START test not_null_store_dim_region ................................. [RUN]
+[2024-12-12T08:30:42.809+0000] {subprocess.py:93} INFO - [0m08:30:42  81 of 112 ERROR not_null_store_dim_data_source ................................. [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:42.822+0000] {subprocess.py:93} INFO - [0m08:30:42  83 of 112 START test not_null_store_dim_store_id ............................... [RUN]
+[2024-12-12T08:30:42.823+0000] {subprocess.py:93} INFO - [0m08:30:42  80 of 112 PASS not_null_stg_store_store_name ................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:42.836+0000] {subprocess.py:93} INFO - [0m08:30:42  84 of 112 START test not_null_store_dim_store_name ............................. [RUN]
+[2024-12-12T08:30:42.878+0000] {subprocess.py:93} INFO - [0m08:30:42  82 of 112 ERROR not_null_store_dim_region ...................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:42.887+0000] {subprocess.py:93} INFO - [0m08:30:42  85 of 112 START test not_null_store_dim_store_sk ............................... [RUN]
+[2024-12-12T08:30:42.917+0000] {subprocess.py:93} INFO - [0m08:30:42  83 of 112 ERROR not_null_store_dim_store_id .................................... [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:42.921+0000] {subprocess.py:93} INFO - [0m08:30:42  84 of 112 ERROR not_null_store_dim_store_name .................................. [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:42.925+0000] {subprocess.py:93} INFO - [0m08:30:42  86 of 112 START test not_null_supplier_dim_data_source ......................... [RUN]
+[2024-12-12T08:30:42.929+0000] {subprocess.py:93} INFO - [0m08:30:42  87 of 112 START test not_null_supplier_dim_location ............................ [RUN]
+[2024-12-12T08:30:43.067+0000] {subprocess.py:93} INFO - [0m08:30:43  85 of 112 ERROR not_null_store_dim_store_sk .................................... [[31mERROR[0m in 0.18s]
+[2024-12-12T08:30:43.079+0000] {subprocess.py:93} INFO - [0m08:30:43  88 of 112 START test not_null_supplier_dim_supplier_name ....................... [RUN]
+[2024-12-12T08:30:43.111+0000] {subprocess.py:93} INFO - [0m08:30:43  86 of 112 ERROR not_null_supplier_dim_data_source .............................. [[31mERROR[0m in 0.18s]
+[2024-12-12T08:30:43.114+0000] {subprocess.py:93} INFO - [0m08:30:43  87 of 112 ERROR not_null_supplier_dim_location ................................. [[31mERROR[0m in 0.18s]
+[2024-12-12T08:30:43.117+0000] {subprocess.py:93} INFO - [0m08:30:43  89 of 112 START test not_null_supplier_dim_supplier_sk ......................... [RUN]
+[2024-12-12T08:30:43.122+0000] {subprocess.py:93} INFO - [0m08:30:43  90 of 112 START test relationships_fact_sales_brand_sk__brand_sk__ref_brand_dim_  [RUN]
+[2024-12-12T08:30:43.168+0000] {subprocess.py:93} INFO - [0m08:30:43  88 of 112 ERROR not_null_supplier_dim_supplier_name ............................ [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.170+0000] {subprocess.py:93} INFO - [0m08:30:43  91 of 112 START test relationships_fact_sales_customer_sk__customer_sk__ref_customer_dim_  [RUN]
+[2024-12-12T08:30:43.212+0000] {subprocess.py:93} INFO - [0m08:30:43  89 of 112 ERROR not_null_supplier_dim_supplier_sk .............................. [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.213+0000] {subprocess.py:93} INFO - [0m08:30:43  90 of 112 ERROR relationships_fact_sales_brand_sk__brand_sk__ref_brand_dim_ .... [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.220+0000] {subprocess.py:93} INFO - [0m08:30:43  92 of 112 START test relationships_fact_sales_date_sk__date_sk__ref_data_dim_ .. [RUN]
+[2024-12-12T08:30:43.220+0000] {subprocess.py:93} INFO - [0m08:30:43  93 of 112 START test relationships_fact_sales_product_sk__product_sk__ref_product_dim_  [RUN]
+[2024-12-12T08:30:43.269+0000] {subprocess.py:93} INFO - [0m08:30:43  91 of 112 ERROR relationships_fact_sales_customer_sk__customer_sk__ref_customer_dim_  [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:43.274+0000] {subprocess.py:93} INFO - [0m08:30:43  94 of 112 START test relationships_fact_sales_store_sk__store_sk__ref_store_dim_  [RUN]
+[2024-12-12T08:30:43.312+0000] {subprocess.py:93} INFO - [0m08:30:43  92 of 112 ERROR relationships_fact_sales_date_sk__date_sk__ref_data_dim_ ....... [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.319+0000] {subprocess.py:93} INFO - [0m08:30:43  95 of 112 START test relationships_fact_sales_supplier_sk__supplier_sk__ref_supplier_dim_  [RUN]
+[2024-12-12T08:30:43.324+0000] {subprocess.py:93} INFO - [0m08:30:43  93 of 112 ERROR relationships_fact_sales_product_sk__product_sk__ref_product_dim_  [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:43.336+0000] {subprocess.py:93} INFO - [0m08:30:43  96 of 112 START test unique_brand_dim_brand_id ................................. [RUN]
+[2024-12-12T08:30:43.385+0000] {subprocess.py:93} INFO - [0m08:30:43  94 of 112 ERROR relationships_fact_sales_store_sk__store_sk__ref_store_dim_ .... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:43.391+0000] {subprocess.py:93} INFO - [0m08:30:43  97 of 112 START test unique_brand_dim_brand_sk ................................. [RUN]
+[2024-12-12T08:30:43.424+0000] {subprocess.py:93} INFO - [0m08:30:43  95 of 112 ERROR relationships_fact_sales_supplier_sk__supplier_sk__ref_supplier_dim_  [[31mERROR[0m in 0.10s]
+[2024-12-12T08:30:43.431+0000] {subprocess.py:93} INFO - [0m08:30:43  98 of 112 START test unique_customer_dim_customer_sk ........................... [RUN]
+[2024-12-12T08:30:43.448+0000] {subprocess.py:93} INFO - [0m08:30:43  96 of 112 ERROR unique_brand_dim_brand_id ...................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:43.464+0000] {subprocess.py:93} INFO - [0m08:30:43  99 of 112 START test unique_data_dim_date_sk ................................... [RUN]
+[2024-12-12T08:30:43.510+0000] {subprocess.py:93} INFO - [0m08:30:43  97 of 112 ERROR unique_brand_dim_brand_sk ...................................... [[31mERROR[0m in 0.12s]
+[2024-12-12T08:30:43.522+0000] {subprocess.py:93} INFO - [0m08:30:43  100 of 112 START test unique_fact_sales_transaction_id ......................... [RUN]
+[2024-12-12T08:30:43.523+0000] {subprocess.py:93} INFO - [0m08:30:43  98 of 112 ERROR unique_customer_dim_customer_sk ................................ [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.533+0000] {subprocess.py:93} INFO - [0m08:30:43  101 of 112 START test unique_product_dim_product_sk ............................ [RUN]
+[2024-12-12T08:30:43.578+0000] {subprocess.py:93} INFO - [0m08:30:43  99 of 112 ERROR unique_data_dim_date_sk ........................................ [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:43.586+0000] {subprocess.py:93} INFO - [0m08:30:43  102 of 112 START test unique_stg_brand_Brand_ID ................................ [RUN]
+[2024-12-12T08:30:43.614+0000] {subprocess.py:93} INFO - [0m08:30:43  100 of 112 ERROR unique_fact_sales_transaction_id .............................. [[31mERROR[0m in 0.09s]
+[2024-12-12T08:30:43.619+0000] {subprocess.py:93} INFO - [0m08:30:43  101 of 112 ERROR unique_product_dim_product_sk ................................. [[31mERROR[0m in 0.08s]
+[2024-12-12T08:30:43.620+0000] {subprocess.py:93} INFO - [0m08:30:43  103 of 112 START test unique_stg_customers_account_id .......................... [RUN]
+[2024-12-12T08:30:43.625+0000] {subprocess.py:93} INFO - [0m08:30:43  104 of 112 START test unique_stg_date_date_sk .................................. [RUN]
+[2024-12-12T08:30:43.703+0000] {subprocess.py:93} INFO - [0m08:30:43  102 of 112 PASS unique_stg_brand_Brand_ID ...................................... [[32mPASS[0m in 0.11s]
+[2024-12-12T08:30:43.710+0000] {subprocess.py:93} INFO - [0m08:30:43  105 of 112 START test unique_stg_date_full_date ................................ [RUN]
+[2024-12-12T08:30:43.750+0000] {subprocess.py:93} INFO - [0m08:30:43  104 of 112 PASS unique_stg_date_date_sk ........................................ [[32mPASS[0m in 0.12s]
+[2024-12-12T08:30:43.753+0000] {subprocess.py:93} INFO - [0m08:30:43  103 of 112 WARN 1 unique_stg_customers_account_id .............................. [[33mWARN 1[0m in 0.13s]
+[2024-12-12T08:30:43.758+0000] {subprocess.py:93} INFO - [0m08:30:43  106 of 112 START test unique_stg_order_details_order_detail_id ................. [RUN]
+[2024-12-12T08:30:43.759+0000] {subprocess.py:93} INFO - [0m08:30:43  107 of 112 START test unique_stg_order_order_id ................................ [RUN]
+[2024-12-12T08:30:43.830+0000] {subprocess.py:93} INFO - [0m08:30:43  105 of 112 PASS unique_stg_date_full_date ...................................... [[32mPASS[0m in 0.12s]
+[2024-12-12T08:30:43.836+0000] {subprocess.py:93} INFO - [0m08:30:43  108 of 112 START test unique_stg_product_Product_ID ............................ [RUN]
+[2024-12-12T08:30:43.890+0000] {subprocess.py:93} INFO - [0m08:30:43  107 of 112 PASS unique_stg_order_order_id ...................................... [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:43.895+0000] {subprocess.py:93} INFO - [0m08:30:43  106 of 112 PASS unique_stg_order_details_order_detail_id ....................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:30:43.899+0000] {subprocess.py:93} INFO - [0m08:30:43  109 of 112 START test unique_stg_store_Store_ID ................................ [RUN]
+[2024-12-12T08:30:43.902+0000] {subprocess.py:93} INFO - [0m08:30:43  110 of 112 START test unique_store_dim_store_id ................................ [RUN]
+[2024-12-12T08:30:43.970+0000] {subprocess.py:93} INFO - [0m08:30:43  108 of 112 PASS unique_stg_product_Product_ID .................................. [[32mPASS[0m in 0.13s]
+[2024-12-12T08:30:43.977+0000] {subprocess.py:93} INFO - [0m08:30:43  111 of 112 START test unique_store_dim_store_sk ................................ [RUN]
+[2024-12-12T08:30:44.018+0000] {subprocess.py:93} INFO - [0m08:30:44  110 of 112 ERROR unique_store_dim_store_id ..................................... [[31mERROR[0m in 0.11s]
+[2024-12-12T08:30:44.026+0000] {subprocess.py:93} INFO - [0m08:30:44  112 of 112 START test unique_supplier_dim_supplier_sk .......................... [RUN]
+[2024-12-12T08:30:44.049+0000] {subprocess.py:93} INFO - [0m08:30:44  109 of 112 PASS unique_stg_store_Store_ID ...................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:30:44.143+0000] {subprocess.py:93} INFO - [0m08:30:44  111 of 112 ERROR unique_store_dim_store_sk ..................................... [[31mERROR[0m in 0.16s]
+[2024-12-12T08:30:44.159+0000] {subprocess.py:93} INFO - [0m08:30:44  112 of 112 ERROR unique_supplier_dim_supplier_sk ............................... [[31mERROR[0m in 0.13s]
+[2024-12-12T08:30:44.172+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.173+0000] {subprocess.py:93} INFO - [0m08:30:44  Finished running 112 data tests in 0 hours 0 minutes and 5.43 seconds (5.43s).
+[2024-12-12T08:30:44.274+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.274+0000] {subprocess.py:93} INFO - [0m08:30:44  [31mCompleted with 67 errors and 2 warnings:[0m
+[2024-12-12T08:30:44.275+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.275+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_brand_country (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.276+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.276+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.276+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.276+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.276+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_brand_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.277+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.277+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.277+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.277+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.278+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_brand_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.278+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.278+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.278+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.278+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.279+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_brand_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.279+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.279+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.279+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.279+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.280+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_data_source (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.280+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.280+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.280+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.280+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.281+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_brand_dim_start_date (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.281+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.281+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.281+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.281+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.282+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_account_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.282+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.282+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.282+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.282+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.283+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_age (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.283+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.283+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.283+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.283+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.284+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_customer_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.284+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.284+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.284+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.284+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.285+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_data_source (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.285+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.285+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.285+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.286+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.286+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_gender (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.286+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.286+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.286+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.287+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.287+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_customer_dim_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.287+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.287+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.287+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.288+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.288+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_date_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.288+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.288+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.289+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.289+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.289+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_day (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.289+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.289+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.290+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.290+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.290+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_day_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.290+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_full_date (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.291+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.292+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.292+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.292+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_month (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.292+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.293+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.293+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.293+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.293+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_month_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.293+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.294+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.294+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.294+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.294+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_data_dim_year (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.295+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.295+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.295+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.295+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.296+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_brand_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.296+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.296+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_customer_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.297+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.298+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.298+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_date_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.298+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.298+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.298+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.299+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.299+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_line_total (models/fact/fact.yml)
+[2024-12-12T08:30:44.299+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.299+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.300+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.300+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.300+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_order_detail_id (models/fact/fact.yml)
+[2024-12-12T08:30:44.300+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.300+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.301+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.301+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.301+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_order_id (models/fact/fact.yml)
+[2024-12-12T08:30:44.301+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.302+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.302+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.302+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.302+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_payment_method (models/fact/fact.yml)
+[2024-12-12T08:30:44.302+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.303+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.303+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.303+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.303+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_product_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.304+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.304+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.304+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.304+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.305+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_quantity (models/fact/fact.yml)
+[2024-12-12T08:30:44.305+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.305+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.305+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.305+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.306+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_shipping_city (models/fact/fact.yml)
+[2024-12-12T08:30:44.306+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.306+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.306+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.306+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.307+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_shipping_method (models/fact/fact.yml)
+[2024-12-12T08:30:44.307+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.307+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.307+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.308+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.308+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_store_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.308+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.308+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.308+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.309+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.309+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_sub_total (models/fact/fact.yml)
+[2024-12-12T08:30:44.309+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.309+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.310+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.310+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.310+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_supplier_sk (models/fact/fact.yml)
+[2024-12-12T08:30:44.310+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.311+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.311+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.311+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.311+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_total_due (models/fact/fact.yml)
+[2024-12-12T08:30:44.311+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.312+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.312+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.312+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.312+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_total_freight (models/fact/fact.yml)
+[2024-12-12T08:30:44.313+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.313+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.313+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.313+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.313+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_total_tax (models/fact/fact.yml)
+[2024-12-12T08:30:44.314+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.314+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.314+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.314+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.315+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_fact_sales_transaction_id (models/fact/fact.yml)
+[2024-12-12T08:30:44.315+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.315+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.315+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.315+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.316+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_cost (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.316+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.316+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.316+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.316+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.317+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_data_source (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.317+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.317+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.317+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.318+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.318+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_price (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.318+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.318+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_product_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.319+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.320+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.320+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_product_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.320+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.320+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.321+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.321+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.321+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_product_dim_product_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.321+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.321+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.322+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.322+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.322+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_store_dim_data_source (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.322+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.323+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.323+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.323+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.323+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_store_dim_region (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.323+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.324+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.324+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.324+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.324+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_store_dim_store_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.324+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.325+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.325+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.325+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.325+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_store_dim_store_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.326+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.326+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.326+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.326+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.326+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_store_dim_store_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.327+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.327+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.327+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.327+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.328+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_supplier_dim_data_source (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.328+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.supplier_dim" does not exist
+[2024-12-12T08:30:44.328+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."supplier_dim"
+[2024-12-12T08:30:44.328+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.328+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.329+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_supplier_dim_location (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.329+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.supplier_dim" does not exist
+[2024-12-12T08:30:44.329+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."supplier_dim"
+[2024-12-12T08:30:44.329+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.329+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.330+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_supplier_dim_supplier_name (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.330+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.supplier_dim" does not exist
+[2024-12-12T08:30:44.330+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."supplier_dim"
+[2024-12-12T08:30:44.330+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.330+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.331+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test not_null_supplier_dim_supplier_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.331+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.supplier_dim" does not exist
+[2024-12-12T08:30:44.331+0000] {subprocess.py:93} INFO -   LINE 20: from "ecommerce"."oltp_dimensions"."supplier_dim"
+[2024-12-12T08:30:44.331+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.331+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.332+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_brand_sk__brand_sk__ref_brand_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.332+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.332+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.332+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.332+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.333+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_customer_sk__customer_sk__ref_customer_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.333+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.333+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.333+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.333+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.334+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_date_sk__date_sk__ref_data_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.334+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.334+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.334+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.334+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.335+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_product_sk__product_sk__ref_product_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.335+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.335+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.335+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.336+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.336+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_store_sk__store_sk__ref_store_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.336+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.336+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.336+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.337+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.337+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test relationships_fact_sales_supplier_sk__supplier_sk__ref_supplier_dim_ (models/fact/fact.yml)
+[2024-12-12T08:30:44.337+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.337+0000] {subprocess.py:93} INFO -   LINE 19:     from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.338+0000] {subprocess.py:93} INFO -                     ^
+[2024-12-12T08:30:44.338+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.338+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_brand_dim_brand_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.338+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.339+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.339+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.339+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.339+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_brand_dim_brand_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.339+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.brand_dim" does not exist
+[2024-12-12T08:30:44.340+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."brand_dim"
+[2024-12-12T08:30:44.340+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.340+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.340+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_customer_dim_customer_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.340+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.customer_dim" does not exist
+[2024-12-12T08:30:44.341+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."customer_dim"
+[2024-12-12T08:30:44.341+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.341+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.341+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_data_dim_date_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.341+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:30:44.342+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."data_dim"
+[2024-12-12T08:30:44.342+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.342+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.342+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_fact_sales_transaction_id (models/fact/fact.yml)
+[2024-12-12T08:30:44.343+0000] {subprocess.py:93} INFO -   relation "oltp_fact.fact_sales" does not exist
+[2024-12-12T08:30:44.343+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_fact"."fact_sales"
+[2024-12-12T08:30:44.343+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.343+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.343+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_product_dim_product_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.344+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.product_dim" does not exist
+[2024-12-12T08:30:44.344+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."product_dim"
+[2024-12-12T08:30:44.344+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.344+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.344+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_store_dim_store_id (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.345+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.345+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.345+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.345+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.345+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_store_dim_store_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.346+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.store_dim" does not exist
+[2024-12-12T08:30:44.346+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."store_dim"
+[2024-12-12T08:30:44.346+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.346+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.346+0000] {subprocess.py:93} INFO - [0m08:30:44    Database Error in test unique_supplier_dim_supplier_sk (models/dimensions/dimensions.yml)
+[2024-12-12T08:30:44.347+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.supplier_dim" does not exist
+[2024-12-12T08:30:44.347+0000] {subprocess.py:93} INFO -   LINE 21: from "ecommerce"."oltp_dimensions"."supplier_dim"
+[2024-12-12T08:30:44.347+0000] {subprocess.py:93} INFO -                 ^
+[2024-12-12T08:30:44.347+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.347+0000] {subprocess.py:93} INFO - [0m08:30:44  [33mWarning in test gender_is_valid_stg_customers_gender (models/staging/staging.yml)[0m
+[2024-12-12T08:30:44.348+0000] {subprocess.py:93} INFO - [0m08:30:44  Got 109 results, configured to warn if != 0
+[2024-12-12T08:30:44.348+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.349+0000] {subprocess.py:93} INFO - [0m08:30:44    compiled code at target/compiled/ecommerce/models/staging/staging.yml/gender_is_valid_stg_customers_gender.sql
+[2024-12-12T08:30:44.349+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.350+0000] {subprocess.py:93} INFO - [0m08:30:44    See test failures:
+[2024-12-12T08:30:44.350+0000] {subprocess.py:93} INFO -   ------------------------------------------------------------------------------------------
+[2024-12-12T08:30:44.350+0000] {subprocess.py:93} INFO -   select * from "ecommerce"."oltp__sad_test_failures"."gender_is_valid_stg_customers_gender"
+[2024-12-12T08:30:44.351+0000] {subprocess.py:93} INFO -   ------------------------------------------------------------------------------------------
+[2024-12-12T08:30:44.351+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.351+0000] {subprocess.py:93} INFO - [0m08:30:44  [33mWarning in test unique_stg_customers_account_id (models/staging/staging.yml)[0m
+[2024-12-12T08:30:44.352+0000] {subprocess.py:93} INFO - [0m08:30:44  Got 1 result, configured to warn if != 0
+[2024-12-12T08:30:44.352+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.353+0000] {subprocess.py:93} INFO - [0m08:30:44    compiled code at target/compiled/ecommerce/models/staging/staging.yml/unique_stg_customers_account_id.sql
+[2024-12-12T08:30:44.353+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.354+0000] {subprocess.py:93} INFO - [0m08:30:44    See test failures:
+[2024-12-12T08:30:44.354+0000] {subprocess.py:93} INFO -   -------------------------------------------------------------------------------------
+[2024-12-12T08:30:44.354+0000] {subprocess.py:93} INFO -   select * from "ecommerce"."oltp__sad_test_failures"."unique_stg_customers_account_id"
+[2024-12-12T08:30:44.354+0000] {subprocess.py:93} INFO -   -------------------------------------------------------------------------------------
+[2024-12-12T08:30:44.354+0000] {subprocess.py:93} INFO - [0m08:30:44
+[2024-12-12T08:30:44.355+0000] {subprocess.py:93} INFO - [0m08:30:44  Done. PASS=43 WARN=2 ERROR=67 SKIP=0 TOTAL=112
+[2024-12-12T08:30:45.200+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-12-12T08:30:45.201+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:30:45.211+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-12-12T08:30:45.215+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt_orchestrator, task_id=dbt_test, run_id=scheduled__2024-12-12T08:15:00+00:00, execution_date=20241212T081500, start_date=20241212T083035, end_date=20241212T083045
+[2024-12-12T08:30:45.227+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 254 for task dbt_test (Bash command failed. The command returned a non-zero exit code 1.; 1054)
+[2024-12-12T08:30:45.257+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-12T08:30:45.276+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:30:45.277+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

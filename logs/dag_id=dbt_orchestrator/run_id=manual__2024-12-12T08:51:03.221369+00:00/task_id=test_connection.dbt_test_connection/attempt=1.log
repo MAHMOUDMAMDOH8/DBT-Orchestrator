@@ -1,0 +1,60 @@
+[2024-12-12T08:51:04.896+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:51:04.933+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.test_connection.dbt_test_connection manual__2024-12-12T08:51:03.221369+00:00 [queued]>
+[2024-12-12T08:51:04.947+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.test_connection.dbt_test_connection manual__2024-12-12T08:51:03.221369+00:00 [queued]>
+[2024-12-12T08:51:04.948+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-12T08:51:04.970+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): test_connection.dbt_test_connection> on 2024-12-12 08:51:03.221369+00:00
+[2024-12-12T08:51:04.978+0000] {standard_task_runner.py:63} INFO - Started process 1529 to run task
+[2024-12-12T08:51:04.981+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'test_connection.dbt_test_connection', 'manual__2024-12-12T08:51:03.221369+00:00', '--job-id', '316', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpgpreudvj']
+[2024-12-12T08:51:04.982+0000] {standard_task_runner.py:91} INFO - Job 316: Subtask test_connection.dbt_test_connection
+[2024-12-12T08:51:05.045+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.test_connection.dbt_test_connection manual__2024-12-12T08:51:03.221369+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:51:05.149+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='test_connection.dbt_test_connection' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:51:03.221369+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-12T08:51:03.221369+00:00'
+[2024-12-12T08:51:05.150+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:51:05.162+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:51:05.162+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt debug --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-12T08:51:05.175+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:51:07.223+0000] {subprocess.py:93} INFO - [0m08:51:07  Running with dbt=1.8.0
+[2024-12-12T08:51:07.236+0000] {subprocess.py:93} INFO - [0m08:51:07  dbt version: 1.8.0
+[2024-12-12T08:51:07.236+0000] {subprocess.py:93} INFO - [0m08:51:07  python version: 3.9.19
+[2024-12-12T08:51:07.237+0000] {subprocess.py:93} INFO - [0m08:51:07  python path: /home/***/.local/bin/python
+[2024-12-12T08:51:07.238+0000] {subprocess.py:93} INFO - [0m08:51:07  os info: Linux-6.8.0-49-generic-x86_64-with-glibc2.36
+[2024-12-12T08:51:07.310+0000] {subprocess.py:93} INFO - [0m08:51:07  Using profiles dir at /opt/***/dbt
+[2024-12-12T08:51:07.310+0000] {subprocess.py:93} INFO - [0m08:51:07  Using profiles.yml file at /opt/***/dbt/profiles.yml
+[2024-12-12T08:51:07.311+0000] {subprocess.py:93} INFO - [0m08:51:07  Using dbt_project.yml file at /opt/***/dbt/ecommerce/dbt_project.yml
+[2024-12-12T08:51:07.312+0000] {subprocess.py:93} INFO - [0m08:51:07  adapter type: postgres
+[2024-12-12T08:51:07.312+0000] {subprocess.py:93} INFO - [0m08:51:07  adapter version: 1.8.0
+[2024-12-12T08:51:07.400+0000] {subprocess.py:93} INFO - [0m08:51:07  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:51:07.400+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:51:07.400+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:51:07.401+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:51:07.449+0000] {subprocess.py:93} INFO - [0m08:51:07  Configuration:
+[2024-12-12T08:51:07.450+0000] {subprocess.py:93} INFO - [0m08:51:07    profiles.yml file [[32mOK found and valid[0m]
+[2024-12-12T08:51:07.451+0000] {subprocess.py:93} INFO - [0m08:51:07    dbt_project.yml file [[32mOK found and valid[0m]
+[2024-12-12T08:51:07.451+0000] {subprocess.py:93} INFO - [0m08:51:07  Required dependencies:
+[2024-12-12T08:51:07.464+0000] {subprocess.py:93} INFO - [0m08:51:07   - git [[32mOK found[0m]
+[2024-12-12T08:51:07.465+0000] {subprocess.py:93} INFO - 
+[2024-12-12T08:51:07.465+0000] {subprocess.py:93} INFO - [0m08:51:07  Connection:
+[2024-12-12T08:51:07.465+0000] {subprocess.py:93} INFO - [0m08:51:07    host: 172.18.0.3
+[2024-12-12T08:51:07.466+0000] {subprocess.py:93} INFO - [0m08:51:07    port: 5432
+[2024-12-12T08:51:07.466+0000] {subprocess.py:93} INFO - [0m08:51:07    user: ***
+[2024-12-12T08:51:07.467+0000] {subprocess.py:93} INFO - [0m08:51:07    database: ecommerce
+[2024-12-12T08:51:07.467+0000] {subprocess.py:93} INFO - [0m08:51:07    schema: oltp
+[2024-12-12T08:51:07.468+0000] {subprocess.py:93} INFO - [0m08:51:07    connect_timeout: 10
+[2024-12-12T08:51:07.468+0000] {subprocess.py:93} INFO - [0m08:51:07    role: None
+[2024-12-12T08:51:07.469+0000] {subprocess.py:93} INFO - [0m08:51:07    search_path: None
+[2024-12-12T08:51:07.470+0000] {subprocess.py:93} INFO - [0m08:51:07    keepalives_idle: 0
+[2024-12-12T08:51:07.471+0000] {subprocess.py:93} INFO - [0m08:51:07    sslmode: None
+[2024-12-12T08:51:07.473+0000] {subprocess.py:93} INFO - [0m08:51:07    sslcert: None
+[2024-12-12T08:51:07.474+0000] {subprocess.py:93} INFO - [0m08:51:07    sslkey: None
+[2024-12-12T08:51:07.475+0000] {subprocess.py:93} INFO - [0m08:51:07    sslrootcert: None
+[2024-12-12T08:51:07.476+0000] {subprocess.py:93} INFO - [0m08:51:07    application_name: dbt
+[2024-12-12T08:51:07.476+0000] {subprocess.py:93} INFO - [0m08:51:07    retries: 1
+[2024-12-12T08:51:07.478+0000] {subprocess.py:93} INFO - [0m08:51:07  Registered adapter: postgres=1.8.0
+[2024-12-12T08:51:07.657+0000] {subprocess.py:93} INFO - [0m08:51:07    Connection test: [[32mOK connection ok[0m]
+[2024-12-12T08:51:07.658+0000] {subprocess.py:93} INFO - 
+[2024-12-12T08:51:07.658+0000] {subprocess.py:93} INFO - [0m08:51:07  [32mAll checks passed![0m
+[2024-12-12T08:51:08.554+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T08:51:08.554+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:51:08.581+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=test_connection.dbt_test_connection, run_id=manual__2024-12-12T08:51:03.221369+00:00, execution_date=20241212T085103, start_date=20241212T085104, end_date=20241212T085108
+[2024-12-12T08:51:08.602+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T08:51:08.638+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:51:08.640+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

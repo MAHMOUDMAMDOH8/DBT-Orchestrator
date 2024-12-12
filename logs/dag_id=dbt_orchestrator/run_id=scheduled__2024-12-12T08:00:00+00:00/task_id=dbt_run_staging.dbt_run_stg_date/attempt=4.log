@@ -1,0 +1,29 @@
+[2024-12-12T08:39:28.916+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:39:28.972+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_date scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:39:28.995+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_date scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:39:28.996+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2024-12-12T08:39:29.027+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_staging.dbt_run_stg_date> on 2024-12-12 08:00:00+00:00
+[2024-12-12T08:39:29.036+0000] {standard_task_runner.py:63} INFO - Started process 1232 to run task
+[2024-12-12T08:39:29.040+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_staging.dbt_run_stg_date', 'scheduled__2024-12-12T08:00:00+00:00', '--job-id', '281', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpzq9ra67e']
+[2024-12-12T08:39:29.042+0000] {standard_task_runner.py:91} INFO - Job 281: Subtask dbt_run_staging.dbt_run_stg_date
+[2024-12-12T08:39:29.149+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_date scheduled__2024-12-12T08:00:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:39:29.334+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_staging.dbt_run_stg_date' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T08:00:00+00:00'
+[2024-12-12T08:39:29.335+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:39:29.355+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:39:29.356+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models models/staging/stg_date']
+[2024-12-12T08:39:29.376+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:39:33.181+0000] {subprocess.py:93} INFO - [0m08:39:33  Running with dbt=1.8.0
+[2024-12-12T08:39:33.466+0000] {subprocess.py:93} INFO - [0m08:39:33  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:39:33.467+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:39:33.467+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:39:33.468+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:39:33.818+0000] {subprocess.py:93} INFO - [0m08:39:33  Registered adapter: postgres=1.8.0
+[2024-12-12T08:39:35.718+0000] {subprocess.py:93} INFO - [0m08:39:35  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:39:35.730+0000] {subprocess.py:93} INFO - [0m08:39:35  The selection criterion 'models/staging/stg_date' does not match any enabled nodes
+[2024-12-12T08:39:35.735+0000] {subprocess.py:93} INFO - [0m08:39:35
+[2024-12-12T08:39:35.737+0000] {subprocess.py:93} INFO - [0m08:39:35  Nothing to do. Try checking your model configs and model specification args
+[2024-12-12T08:39:36.915+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T08:39:36.916+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:39:36.949+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_run_staging.dbt_run_stg_date, run_id=scheduled__2024-12-12T08:00:00+00:00, execution_date=20241212T080000, start_date=20241212T083928, end_date=20241212T083936
+[2024-12-12T08:39:36.985+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T08:39:36.996+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

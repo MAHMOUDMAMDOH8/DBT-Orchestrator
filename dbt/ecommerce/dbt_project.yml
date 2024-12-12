@@ -1,0 +1,40 @@
+name: 'ecommerce'
+version: '1.0.0'
+profile: 'ecommerce'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ecommerce:
+    staging:
+      +schema: staging_tables
+      +docs:
+          node_color: "green"
+      +tags: "staging"
+
+    olap_model:
+      dimensions:
+        +docs:
+            node_color: "red"
+        +tags: "dimensions"
+
+      fact:
+        +docs:
+            node_color: "black"
+        +tags: "fact"
+
+tests:
+  +store_failures: true
+  +schema: _sad_test_failures
+  ecommerce:
+    staging:
+      +severity: warn

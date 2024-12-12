@@ -1,0 +1,284 @@
+[2024-12-12T08:08:07.564+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:08:07.592+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_test manual__2024-12-12T08:05:08.618053+00:00 [queued]>
+[2024-12-12T08:08:07.604+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_test manual__2024-12-12T08:05:08.618053+00:00 [queued]>
+[2024-12-12T08:08:07.605+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-12T08:08:07.621+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test> on 2024-12-12 08:05:08.618053+00:00
+[2024-12-12T08:08:07.628+0000] {standard_task_runner.py:63} INFO - Started process 260 to run task
+[2024-12-12T08:08:07.630+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_test', 'manual__2024-12-12T08:05:08.618053+00:00', '--job-id', '145', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpb_h8zuwx']
+[2024-12-12T08:08:07.631+0000] {standard_task_runner.py:91} INFO - Job 145: Subtask dbt_test
+[2024-12-12T08:08:07.674+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_test manual__2024-12-12T08:05:08.618053+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:08:07.766+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:05:08.618053+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-12T08:05:08.618053+00:00'
+[2024-12-12T08:08:07.767+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:08:07.783+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:08:07.784+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt test --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-12T08:08:07.805+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:08:09.907+0000] {subprocess.py:93} INFO - [0m08:08:09  Running with dbt=1.8.0
+[2024-12-12T08:08:10.054+0000] {subprocess.py:93} INFO - [0m08:08:10  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:08:10.054+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:08:10.055+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:08:10.055+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:08:10.207+0000] {subprocess.py:93} INFO - [0m08:08:10  Registered adapter: postgres=1.8.0
+[2024-12-12T08:08:10.661+0000] {subprocess.py:93} INFO - [0m08:08:10  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2024-12-12T08:08:10.661+0000] {subprocess.py:93} INFO - There are 2 unused configuration paths:
+[2024-12-12T08:08:10.661+0000] {subprocess.py:93} INFO - - models.ecommerce.staging.dimensions
+[2024-12-12T08:08:10.661+0000] {subprocess.py:93} INFO - - models.ecommerce.staging.fact
+[2024-12-12T08:08:10.991+0000] {subprocess.py:93} INFO - [0m08:08:10  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:08:11.004+0000] {subprocess.py:93} INFO - [0m08:08:11
+[2024-12-12T08:08:11.260+0000] {subprocess.py:93} INFO - [0m08:08:11  Concurrency: 3 threads (target='dev')
+[2024-12-12T08:08:11.261+0000] {subprocess.py:93} INFO - [0m08:08:11
+[2024-12-12T08:08:11.270+0000] {subprocess.py:93} INFO - [0m08:08:11  1 of 112 START test gender_is_valid_stg_customers_gender ....................... [RUN]
+[2024-12-12T08:08:11.271+0000] {subprocess.py:93} INFO - [0m08:08:11  2 of 112 START test greater_than_zero_stg_customers_age ........................ [RUN]
+[2024-12-12T08:08:11.272+0000] {subprocess.py:93} INFO - [0m08:08:11  3 of 112 START test greater_than_zero_stg_order_details_line_total ............. [RUN]
+[2024-12-12T08:08:11.559+0000] {subprocess.py:93} INFO - [0m08:08:11  3 of 112 PASS greater_than_zero_stg_order_details_line_total ................... [[32mPASS[0m in 0.28s]
+[2024-12-12T08:08:11.560+0000] {subprocess.py:93} INFO - [0m08:08:11  1 of 112 WARN 109 gender_is_valid_stg_customers_gender ......................... [[33mWARN 109[0m in 0.29s]
+[2024-12-12T08:08:11.562+0000] {subprocess.py:93} INFO - [0m08:08:11  2 of 112 PASS greater_than_zero_stg_customers_age .............................. [[32mPASS[0m in 0.29s]
+[2024-12-12T08:08:11.571+0000] {subprocess.py:93} INFO - [0m08:08:11  4 of 112 START test greater_than_zero_stg_order_sub_total ...................... [RUN]
+[2024-12-12T08:08:11.572+0000] {subprocess.py:93} INFO - [0m08:08:11  5 of 112 START test greater_than_zero_stg_order_total_due ...................... [RUN]
+[2024-12-12T08:08:11.573+0000] {subprocess.py:93} INFO - [0m08:08:11  6 of 112 START test not_null_brand_dim_brand_country ........................... [RUN]
+[2024-12-12T08:08:11.739+0000] {subprocess.py:93} INFO - [0m08:08:11  6 of 112 PASS not_null_brand_dim_brand_country ................................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:11.746+0000] {subprocess.py:93} INFO - [0m08:08:11  5 of 112 PASS greater_than_zero_stg_order_total_due ............................ [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:11.747+0000] {subprocess.py:93} INFO - [0m08:08:11  7 of 112 START test not_null_brand_dim_brand_id ................................ [RUN]
+[2024-12-12T08:08:11.751+0000] {subprocess.py:93} INFO - [0m08:08:11  4 of 112 PASS greater_than_zero_stg_order_sub_total ............................ [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:11.754+0000] {subprocess.py:93} INFO - [0m08:08:11  8 of 112 START test not_null_brand_dim_brand_name .............................. [RUN]
+[2024-12-12T08:08:11.763+0000] {subprocess.py:93} INFO - [0m08:08:11  9 of 112 START test not_null_brand_dim_brand_sk ................................ [RUN]
+[2024-12-12T08:08:11.948+0000] {subprocess.py:93} INFO - [0m08:08:11  7 of 112 PASS not_null_brand_dim_brand_id ...................................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:11.953+0000] {subprocess.py:93} INFO - [0m08:08:11  10 of 112 START test not_null_brand_dim_data_source ............................ [RUN]
+[2024-12-12T08:08:11.994+0000] {subprocess.py:93} INFO - [0m08:08:11  8 of 112 PASS not_null_brand_dim_brand_name .................................... [[32mPASS[0m in 0.23s]
+[2024-12-12T08:08:11.999+0000] {subprocess.py:93} INFO - [0m08:08:11  9 of 112 PASS not_null_brand_dim_brand_sk ...................................... [[32mPASS[0m in 0.23s]
+[2024-12-12T08:08:12.000+0000] {subprocess.py:93} INFO - [0m08:08:12  11 of 112 START test not_null_brand_dim_start_date ............................. [RUN]
+[2024-12-12T08:08:12.004+0000] {subprocess.py:93} INFO - [0m08:08:12  12 of 112 START test not_null_customer_dim_account_id .......................... [RUN]
+[2024-12-12T08:08:12.095+0000] {subprocess.py:93} INFO - [0m08:08:12  10 of 112 PASS not_null_brand_dim_data_source .................................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:08:12.102+0000] {subprocess.py:93} INFO - [0m08:08:12  13 of 112 START test not_null_customer_dim_age ................................. [RUN]
+[2024-12-12T08:08:12.155+0000] {subprocess.py:93} INFO - [0m08:08:12  11 of 112 PASS not_null_brand_dim_start_date ................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.161+0000] {subprocess.py:93} INFO - [0m08:08:12  14 of 112 START test not_null_customer_dim_customer_sk ......................... [RUN]
+[2024-12-12T08:08:12.162+0000] {subprocess.py:93} INFO - [0m08:08:12  12 of 112 PASS not_null_customer_dim_account_id ................................ [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.178+0000] {subprocess.py:93} INFO - [0m08:08:12  15 of 112 START test not_null_customer_dim_data_source ......................... [RUN]
+[2024-12-12T08:08:12.248+0000] {subprocess.py:93} INFO - [0m08:08:12  13 of 112 PASS not_null_customer_dim_age ....................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:08:12.255+0000] {subprocess.py:93} INFO - [0m08:08:12  16 of 112 START test not_null_customer_dim_gender .............................. [RUN]
+[2024-12-12T08:08:12.314+0000] {subprocess.py:93} INFO - [0m08:08:12  14 of 112 PASS not_null_customer_dim_customer_sk ............................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.321+0000] {subprocess.py:93} INFO - [0m08:08:12  17 of 112 START test not_null_customer_dim_name ................................ [RUN]
+[2024-12-12T08:08:12.363+0000] {subprocess.py:93} INFO - [0m08:08:12  15 of 112 PASS not_null_customer_dim_data_source ............................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:12.366+0000] {subprocess.py:93} INFO - [0m08:08:12  18 of 112 START test not_null_data_dim_date_sk ................................. [RUN]
+[2024-12-12T08:08:12.403+0000] {subprocess.py:93} INFO - [0m08:08:12  16 of 112 PASS not_null_customer_dim_gender .................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.409+0000] {subprocess.py:93} INFO - [0m08:08:12  19 of 112 START test not_null_data_dim_day ..................................... [RUN]
+[2024-12-12T08:08:12.469+0000] {subprocess.py:93} INFO - [0m08:08:12  17 of 112 PASS not_null_customer_dim_name ...................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.473+0000] {subprocess.py:93} INFO - [0m08:08:12  20 of 112 START test not_null_data_dim_day_name ................................ [RUN]
+[2024-12-12T08:08:12.510+0000] {subprocess.py:93} INFO - [0m08:08:12  18 of 112 PASS not_null_data_dim_date_sk ....................................... [[32mPASS[0m in 0.14s]
+[2024-12-12T08:08:12.519+0000] {subprocess.py:93} INFO - [0m08:08:12  21 of 112 START test not_null_data_dim_full_date ............................... [RUN]
+[2024-12-12T08:08:12.569+0000] {subprocess.py:93} INFO - [0m08:08:12  19 of 112 PASS not_null_data_dim_day ........................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:12.580+0000] {subprocess.py:93} INFO - [0m08:08:12  22 of 112 START test not_null_data_dim_month ................................... [RUN]
+[2024-12-12T08:08:12.643+0000] {subprocess.py:93} INFO - [0m08:08:12  20 of 112 PASS not_null_data_dim_day_name ...................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:12.646+0000] {subprocess.py:93} INFO - [0m08:08:12  23 of 112 START test not_null_data_dim_month_name .............................. [RUN]
+[2024-12-12T08:08:12.677+0000] {subprocess.py:93} INFO - [0m08:08:12  21 of 112 PASS not_null_data_dim_full_date ..................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.698+0000] {subprocess.py:93} INFO - [0m08:08:12  24 of 112 START test not_null_data_dim_year .................................... [RUN]
+[2024-12-12T08:08:12.736+0000] {subprocess.py:93} INFO - [0m08:08:12  22 of 112 PASS not_null_data_dim_month ......................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.741+0000] {subprocess.py:93} INFO - [0m08:08:12  25 of 112 START test not_null_fact_sales_brand_sk .............................. [RUN]
+[2024-12-12T08:08:12.848+0000] {subprocess.py:93} INFO - [0m08:08:12  23 of 112 PASS not_null_data_dim_month_name .................................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:12.856+0000] {subprocess.py:93} INFO - [0m08:08:12  24 of 112 PASS not_null_data_dim_year .......................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:12.857+0000] {subprocess.py:93} INFO - [0m08:08:12  26 of 112 START test not_null_fact_sales_customer_sk ........................... [RUN]
+[2024-12-12T08:08:12.865+0000] {subprocess.py:93} INFO - [0m08:08:12  27 of 112 START test not_null_fact_sales_date_sk ............................... [RUN]
+[2024-12-12T08:08:12.935+0000] {subprocess.py:93} INFO - [0m08:08:12  25 of 112 PASS not_null_fact_sales_brand_sk .................................... [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:12.941+0000] {subprocess.py:93} INFO - [0m08:08:12  28 of 112 START test not_null_fact_sales_line_total ............................ [RUN]
+[2024-12-12T08:08:13.047+0000] {subprocess.py:93} INFO - [0m08:08:13  26 of 112 PASS not_null_fact_sales_customer_sk ................................. [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:13.052+0000] {subprocess.py:93} INFO - [0m08:08:13  29 of 112 START test not_null_fact_sales_order_detail_id ....................... [RUN]
+[2024-12-12T08:08:13.096+0000] {subprocess.py:93} INFO - [0m08:08:13  27 of 112 PASS not_null_fact_sales_date_sk ..................................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:08:13.100+0000] {subprocess.py:93} INFO - [0m08:08:13  30 of 112 START test not_null_fact_sales_order_id .............................. [RUN]
+[2024-12-12T08:08:13.129+0000] {subprocess.py:93} INFO - [0m08:08:13  28 of 112 PASS not_null_fact_sales_line_total .................................. [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:13.138+0000] {subprocess.py:93} INFO - [0m08:08:13  31 of 112 START test not_null_fact_sales_payment_method ........................ [RUN]
+[2024-12-12T08:08:13.224+0000] {subprocess.py:93} INFO - [0m08:08:13  29 of 112 PASS not_null_fact_sales_order_detail_id ............................. [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:13.230+0000] {subprocess.py:93} INFO - [0m08:08:13  32 of 112 START test not_null_fact_sales_product_sk ............................ [RUN]
+[2024-12-12T08:08:13.264+0000] {subprocess.py:93} INFO - [0m08:08:13  30 of 112 PASS not_null_fact_sales_order_id .................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:13.269+0000] {subprocess.py:93} INFO - [0m08:08:13  33 of 112 START test not_null_fact_sales_quantity .............................. [RUN]
+[2024-12-12T08:08:13.301+0000] {subprocess.py:93} INFO - [0m08:08:13  31 of 112 PASS not_null_fact_sales_payment_method .............................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:13.306+0000] {subprocess.py:93} INFO - [0m08:08:13  34 of 112 START test not_null_fact_sales_shipping_city ......................... [RUN]
+[2024-12-12T08:08:13.475+0000] {subprocess.py:93} INFO - [0m08:08:13  32 of 112 PASS not_null_fact_sales_product_sk .................................. [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:13.480+0000] {subprocess.py:93} INFO - [0m08:08:13  35 of 112 START test not_null_fact_sales_shipping_method ....................... [RUN]
+[2024-12-12T08:08:13.510+0000] {subprocess.py:93} INFO - [0m08:08:13  34 of 112 PASS not_null_fact_sales_shipping_city ............................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:13.520+0000] {subprocess.py:93} INFO - [0m08:08:13  36 of 112 START test not_null_fact_sales_store_sk .............................. [RUN]
+[2024-12-12T08:08:13.557+0000] {subprocess.py:93} INFO - [0m08:08:13  33 of 112 PASS not_null_fact_sales_quantity .................................... [[32mPASS[0m in 0.29s]
+[2024-12-12T08:08:13.562+0000] {subprocess.py:93} INFO - [0m08:08:13  37 of 112 START test not_null_fact_sales_sub_total ............................. [RUN]
+[2024-12-12T08:08:13.622+0000] {subprocess.py:93} INFO - [0m08:08:13  35 of 112 PASS not_null_fact_sales_shipping_method ............................. [[32mPASS[0m in 0.14s]
+[2024-12-12T08:08:13.625+0000] {subprocess.py:93} INFO - [0m08:08:13  38 of 112 START test not_null_fact_sales_supplier_sk ........................... [RUN]
+[2024-12-12T08:08:13.670+0000] {subprocess.py:93} INFO - [0m08:08:13  36 of 112 PASS not_null_fact_sales_store_sk .................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:13.675+0000] {subprocess.py:93} INFO - [0m08:08:13  39 of 112 START test not_null_fact_sales_total_due ............................. [RUN]
+[2024-12-12T08:08:13.738+0000] {subprocess.py:93} INFO - [0m08:08:13  37 of 112 PASS not_null_fact_sales_sub_total ................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:13.748+0000] {subprocess.py:93} INFO - [0m08:08:13  40 of 112 START test not_null_fact_sales_total_freight ......................... [RUN]
+[2024-12-12T08:08:13.835+0000] {subprocess.py:93} INFO - [0m08:08:13  38 of 112 PASS not_null_fact_sales_supplier_sk ................................. [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:13.841+0000] {subprocess.py:93} INFO - [0m08:08:13  41 of 112 START test not_null_fact_sales_total_tax ............................. [RUN]
+[2024-12-12T08:08:13.886+0000] {subprocess.py:93} INFO - [0m08:08:13  39 of 112 PASS not_null_fact_sales_total_due ................................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:13.893+0000] {subprocess.py:93} INFO - [0m08:08:13  42 of 112 START test not_null_fact_sales_transaction_id ........................ [RUN]
+[2024-12-12T08:08:13.964+0000] {subprocess.py:93} INFO - [0m08:08:13  40 of 112 PASS not_null_fact_sales_total_freight ............................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:13.967+0000] {subprocess.py:93} INFO - [0m08:08:13  43 of 112 START test not_null_product_dim_cost ................................. [RUN]
+[2024-12-12T08:08:14.011+0000] {subprocess.py:93} INFO - [0m08:08:14  41 of 112 PASS not_null_fact_sales_total_tax ................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:14.021+0000] {subprocess.py:93} INFO - [0m08:08:14  44 of 112 START test not_null_product_dim_data_source .......................... [RUN]
+[2024-12-12T08:08:14.059+0000] {subprocess.py:93} INFO - [0m08:08:14  42 of 112 PASS not_null_fact_sales_transaction_id .............................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.064+0000] {subprocess.py:93} INFO - [0m08:08:14  45 of 112 START test not_null_product_dim_price ................................ [RUN]
+[2024-12-12T08:08:14.158+0000] {subprocess.py:93} INFO - [0m08:08:14  44 of 112 PASS not_null_product_dim_data_source ................................ [[32mPASS[0m in 0.13s]
+[2024-12-12T08:08:14.167+0000] {subprocess.py:93} INFO - [0m08:08:14  46 of 112 START test not_null_product_dim_product_id ........................... [RUN]
+[2024-12-12T08:08:14.168+0000] {subprocess.py:93} INFO - [0m08:08:14  43 of 112 PASS not_null_product_dim_cost ....................................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:14.185+0000] {subprocess.py:93} INFO - [0m08:08:14  47 of 112 START test not_null_product_dim_product_name ......................... [RUN]
+[2024-12-12T08:08:14.238+0000] {subprocess.py:93} INFO - [0m08:08:14  45 of 112 PASS not_null_product_dim_price ...................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:14.245+0000] {subprocess.py:93} INFO - [0m08:08:14  48 of 112 START test not_null_product_dim_product_sk ........................... [RUN]
+[2024-12-12T08:08:14.337+0000] {subprocess.py:93} INFO - [0m08:08:14  46 of 112 PASS not_null_product_dim_product_id ................................. [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:14.341+0000] {subprocess.py:93} INFO - [0m08:08:14  49 of 112 START test not_null_stg_brand_Brand_ID ............................... [RUN]
+[2024-12-12T08:08:14.371+0000] {subprocess.py:93} INFO - [0m08:08:14  47 of 112 PASS not_null_product_dim_product_name ............................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:14.374+0000] {subprocess.py:93} INFO - [0m08:08:14  50 of 112 START test not_null_stg_brand_brand_name ............................. [RUN]
+[2024-12-12T08:08:14.405+0000] {subprocess.py:93} INFO - [0m08:08:14  48 of 112 PASS not_null_product_dim_product_sk ................................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.408+0000] {subprocess.py:93} INFO - [0m08:08:14  51 of 112 START test not_null_stg_customers_Name ............................... [RUN]
+[2024-12-12T08:08:14.494+0000] {subprocess.py:93} INFO - [0m08:08:14  49 of 112 PASS not_null_stg_brand_Brand_ID ..................................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:14.501+0000] {subprocess.py:93} INFO - [0m08:08:14  52 of 112 START test not_null_stg_customers_account_id ......................... [RUN]
+[2024-12-12T08:08:14.534+0000] {subprocess.py:93} INFO - [0m08:08:14  50 of 112 PASS not_null_stg_brand_brand_name ................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.539+0000] {subprocess.py:93} INFO - [0m08:08:14  53 of 112 START test not_null_stg_customers_customer_id ........................ [RUN]
+[2024-12-12T08:08:14.566+0000] {subprocess.py:93} INFO - [0m08:08:14  51 of 112 PASS not_null_stg_customers_Name ..................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.571+0000] {subprocess.py:93} INFO - [0m08:08:14  54 of 112 START test not_null_stg_date_date_sk ................................. [RUN]
+[2024-12-12T08:08:14.653+0000] {subprocess.py:93} INFO - [0m08:08:14  52 of 112 PASS not_null_stg_customers_account_id ............................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:14.657+0000] {subprocess.py:93} INFO - [0m08:08:14  55 of 112 START test not_null_stg_date_day ..................................... [RUN]
+[2024-12-12T08:08:14.702+0000] {subprocess.py:93} INFO - [0m08:08:14  53 of 112 PASS not_null_stg_customers_customer_id .............................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.706+0000] {subprocess.py:93} INFO - [0m08:08:14  56 of 112 START test not_null_stg_date_day_name ................................ [RUN]
+[2024-12-12T08:08:14.746+0000] {subprocess.py:93} INFO - [0m08:08:14  54 of 112 PASS not_null_stg_date_date_sk ....................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:14.757+0000] {subprocess.py:93} INFO - [0m08:08:14  57 of 112 START test not_null_stg_date_full_date ............................... [RUN]
+[2024-12-12T08:08:14.829+0000] {subprocess.py:93} INFO - [0m08:08:14  55 of 112 PASS not_null_stg_date_day ........................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:14.835+0000] {subprocess.py:93} INFO - [0m08:08:14  58 of 112 START test not_null_stg_date_month ................................... [RUN]
+[2024-12-12T08:08:14.883+0000] {subprocess.py:93} INFO - [0m08:08:14  56 of 112 PASS not_null_stg_date_day_name ...................................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:14.887+0000] {subprocess.py:93} INFO - [0m08:08:14  59 of 112 START test not_null_stg_date_month_name .............................. [RUN]
+[2024-12-12T08:08:14.925+0000] {subprocess.py:93} INFO - [0m08:08:14  57 of 112 PASS not_null_stg_date_full_date ..................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:14.934+0000] {subprocess.py:93} INFO - [0m08:08:14  60 of 112 START test not_null_stg_date_year .................................... [RUN]
+[2024-12-12T08:08:15.103+0000] {subprocess.py:93} INFO - [0m08:08:15  58 of 112 PASS not_null_stg_date_month ......................................... [[32mPASS[0m in 0.27s]
+[2024-12-12T08:08:15.108+0000] {subprocess.py:93} INFO - [0m08:08:15  61 of 112 START test not_null_stg_order_customer_id ............................ [RUN]
+[2024-12-12T08:08:15.138+0000] {subprocess.py:93} INFO - [0m08:08:15  59 of 112 PASS not_null_stg_date_month_name .................................... [[32mPASS[0m in 0.25s]
+[2024-12-12T08:08:15.143+0000] {subprocess.py:93} INFO - [0m08:08:15  62 of 112 START test not_null_stg_order_details_line_total ..................... [RUN]
+[2024-12-12T08:08:15.193+0000] {subprocess.py:93} INFO - [0m08:08:15  60 of 112 PASS not_null_stg_date_year .......................................... [[32mPASS[0m in 0.26s]
+[2024-12-12T08:08:15.202+0000] {subprocess.py:93} INFO - [0m08:08:15  63 of 112 START test not_null_stg_order_details_order_detail_id ................ [RUN]
+[2024-12-12T08:08:15.269+0000] {subprocess.py:93} INFO - [0m08:08:15  61 of 112 PASS not_null_stg_order_customer_id .................................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:15.274+0000] {subprocess.py:93} INFO - [0m08:08:15  64 of 112 START test not_null_stg_order_details_order_id ....................... [RUN]
+[2024-12-12T08:08:15.340+0000] {subprocess.py:93} INFO - [0m08:08:15  62 of 112 PASS not_null_stg_order_details_line_total ........................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:15.347+0000] {subprocess.py:93} INFO - [0m08:08:15  65 of 112 START test not_null_stg_order_details_product_id ..................... [RUN]
+[2024-12-12T08:08:15.419+0000] {subprocess.py:93} INFO - [0m08:08:15  63 of 112 PASS not_null_stg_order_details_order_detail_id ...................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:15.431+0000] {subprocess.py:93} INFO - [0m08:08:15  66 of 112 START test not_null_stg_order_details_quantity ....................... [RUN]
+[2024-12-12T08:08:15.536+0000] {subprocess.py:93} INFO - [0m08:08:15  64 of 112 PASS not_null_stg_order_details_order_id ............................. [[32mPASS[0m in 0.26s]
+[2024-12-12T08:08:15.548+0000] {subprocess.py:93} INFO - [0m08:08:15  67 of 112 START test not_null_stg_order_order_date ............................. [RUN]
+[2024-12-12T08:08:15.555+0000] {subprocess.py:93} INFO - [0m08:08:15  65 of 112 PASS not_null_stg_order_details_product_id ........................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:15.577+0000] {subprocess.py:93} INFO - [0m08:08:15  68 of 112 START test not_null_stg_order_order_id ............................... [RUN]
+[2024-12-12T08:08:15.634+0000] {subprocess.py:93} INFO - [0m08:08:15  66 of 112 PASS not_null_stg_order_details_quantity ............................. [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:15.638+0000] {subprocess.py:93} INFO - [0m08:08:15  69 of 112 START test not_null_stg_order_payment_method ......................... [RUN]
+[2024-12-12T08:08:15.771+0000] {subprocess.py:93} INFO - [0m08:08:15  67 of 112 PASS not_null_stg_order_order_date ................................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:08:15.775+0000] {subprocess.py:93} INFO - [0m08:08:15  70 of 112 START test not_null_stg_order_shipping_method ........................ [RUN]
+[2024-12-12T08:08:15.814+0000] {subprocess.py:93} INFO - [0m08:08:15  68 of 112 PASS not_null_stg_order_order_id ..................................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:15.820+0000] {subprocess.py:93} INFO - [0m08:08:15  71 of 112 START test not_null_stg_order_sub_total .............................. [RUN]
+[2024-12-12T08:08:15.854+0000] {subprocess.py:93} INFO - [0m08:08:15  69 of 112 PASS not_null_stg_order_payment_method ............................... [[32mPASS[0m in 0.21s]
+[2024-12-12T08:08:15.869+0000] {subprocess.py:93} INFO - [0m08:08:15  72 of 112 START test not_null_stg_order_total_due .............................. [RUN]
+[2024-12-12T08:08:16.011+0000] {subprocess.py:93} INFO - [0m08:08:16  70 of 112 PASS not_null_stg_order_shipping_method .............................. [[32mPASS[0m in 0.23s]
+[2024-12-12T08:08:16.018+0000] {subprocess.py:93} INFO - [0m08:08:16  73 of 112 START test not_null_stg_order_total_freight .......................... [RUN]
+[2024-12-12T08:08:16.062+0000] {subprocess.py:93} INFO - [0m08:08:16  71 of 112 PASS not_null_stg_order_sub_total .................................... [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:16.073+0000] {subprocess.py:93} INFO - [0m08:08:16  74 of 112 START test not_null_stg_order_total_tax .............................. [RUN]
+[2024-12-12T08:08:16.112+0000] {subprocess.py:93} INFO - [0m08:08:16  72 of 112 PASS not_null_stg_order_total_due .................................... [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:16.123+0000] {subprocess.py:93} INFO - [0m08:08:16  75 of 112 START test not_null_stg_product_Product_ID ........................... [RUN]
+[2024-12-12T08:08:16.199+0000] {subprocess.py:93} INFO - [0m08:08:16  73 of 112 PASS not_null_stg_order_total_freight ................................ [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:16.209+0000] {subprocess.py:93} INFO - [0m08:08:16  76 of 112 START test not_null_stg_product_Product_name ......................... [RUN]
+[2024-12-12T08:08:16.247+0000] {subprocess.py:93} INFO - [0m08:08:16  74 of 112 PASS not_null_stg_order_total_tax .................................... [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:16.259+0000] {subprocess.py:93} INFO - [0m08:08:16  77 of 112 START test not_null_stg_product_cost ................................. [RUN]
+[2024-12-12T08:08:16.313+0000] {subprocess.py:93} INFO - [0m08:08:16  75 of 112 PASS not_null_stg_product_Product_ID ................................. [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:16.325+0000] {subprocess.py:93} INFO - [0m08:08:16  78 of 112 START test not_null_stg_product_price ................................ [RUN]
+[2024-12-12T08:08:16.450+0000] {subprocess.py:93} INFO - [0m08:08:16  76 of 112 PASS not_null_stg_product_Product_name ............................... [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:16.462+0000] {subprocess.py:93} INFO - [0m08:08:16  79 of 112 START test not_null_stg_store_Store_ID ............................... [RUN]
+[2024-12-12T08:08:16.541+0000] {subprocess.py:93} INFO - [0m08:08:16  77 of 112 PASS not_null_stg_product_cost ....................................... [[32mPASS[0m in 0.27s]
+[2024-12-12T08:08:16.552+0000] {subprocess.py:93} INFO - [0m08:08:16  80 of 112 START test not_null_stg_store_store_name ............................. [RUN]
+[2024-12-12T08:08:16.594+0000] {subprocess.py:93} INFO - [0m08:08:16  78 of 112 PASS not_null_stg_product_price ...................................... [[32mPASS[0m in 0.26s]
+[2024-12-12T08:08:16.604+0000] {subprocess.py:93} INFO - [0m08:08:16  81 of 112 START test not_null_store_dim_data_source ............................ [RUN]
+[2024-12-12T08:08:16.693+0000] {subprocess.py:93} INFO - [0m08:08:16  79 of 112 PASS not_null_stg_store_Store_ID ..................................... [[32mPASS[0m in 0.22s]
+[2024-12-12T08:08:16.707+0000] {subprocess.py:93} INFO - [0m08:08:16  82 of 112 START test not_null_store_dim_region ................................. [RUN]
+[2024-12-12T08:08:16.712+0000] {subprocess.py:93} INFO - [0m08:08:16  80 of 112 PASS not_null_stg_store_store_name ................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:16.732+0000] {subprocess.py:93} INFO - [0m08:08:16  83 of 112 START test not_null_store_dim_store_id ............................... [RUN]
+[2024-12-12T08:08:16.798+0000] {subprocess.py:93} INFO - [0m08:08:16  81 of 112 PASS not_null_store_dim_data_source .................................. [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:16.809+0000] {subprocess.py:93} INFO - [0m08:08:16  84 of 112 START test not_null_store_dim_store_name ............................. [RUN]
+[2024-12-12T08:08:16.887+0000] {subprocess.py:93} INFO - [0m08:08:16  82 of 112 PASS not_null_store_dim_region ....................................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:16.897+0000] {subprocess.py:93} INFO - [0m08:08:16  85 of 112 START test not_null_store_dim_store_sk ............................... [RUN]
+[2024-12-12T08:08:17.031+0000] {subprocess.py:93} INFO - [0m08:08:17  83 of 112 PASS not_null_store_dim_store_id ..................................... [[32mPASS[0m in 0.30s]
+[2024-12-12T08:08:17.037+0000] {subprocess.py:93} INFO - [0m08:08:17  86 of 112 START test not_null_supplier_dim_data_source ......................... [RUN]
+[2024-12-12T08:08:17.066+0000] {subprocess.py:93} INFO - [0m08:08:17  84 of 112 PASS not_null_store_dim_store_name ................................... [[32mPASS[0m in 0.25s]
+[2024-12-12T08:08:17.076+0000] {subprocess.py:93} INFO - [0m08:08:17  87 of 112 START test not_null_supplier_dim_location ............................ [RUN]
+[2024-12-12T08:08:17.140+0000] {subprocess.py:93} INFO - [0m08:08:17  85 of 112 PASS not_null_store_dim_store_sk ..................................... [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:17.146+0000] {subprocess.py:93} INFO - [0m08:08:17  88 of 112 START test not_null_supplier_dim_supplier_name ....................... [RUN]
+[2024-12-12T08:08:17.194+0000] {subprocess.py:93} INFO - [0m08:08:17  87 of 112 PASS not_null_supplier_dim_location .................................. [[32mPASS[0m in 0.12s]
+[2024-12-12T08:08:17.197+0000] {subprocess.py:93} INFO - [0m08:08:17  89 of 112 START test not_null_supplier_dim_supplier_sk ......................... [RUN]
+[2024-12-12T08:08:17.244+0000] {subprocess.py:93} INFO - [0m08:08:17  86 of 112 PASS not_null_supplier_dim_data_source ............................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:17.258+0000] {subprocess.py:93} INFO - [0m08:08:17  90 of 112 START test relationships_fact_sales_brand_sk__brand_sk__ref_brand_dim_  [RUN]
+[2024-12-12T08:08:17.325+0000] {subprocess.py:93} INFO - [0m08:08:17  88 of 112 PASS not_null_supplier_dim_supplier_name ............................. [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:17.330+0000] {subprocess.py:93} INFO - [0m08:08:17  91 of 112 START test relationships_fact_sales_customer_sk__customer_sk__ref_customer_dim_  [RUN]
+[2024-12-12T08:08:17.374+0000] {subprocess.py:93} INFO - [0m08:08:17  89 of 112 PASS not_null_supplier_dim_supplier_sk ............................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:17.380+0000] {subprocess.py:93} INFO - [0m08:08:17  92 of 112 START test relationships_fact_sales_date_sk__date_sk__ref_data_dim_ .. [RUN]
+[2024-12-12T08:08:17.452+0000] {subprocess.py:93} INFO - [0m08:08:17  90 of 112 PASS relationships_fact_sales_brand_sk__brand_sk__ref_brand_dim_ ..... [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:17.460+0000] {subprocess.py:93} INFO - [0m08:08:17  93 of 112 START test relationships_fact_sales_product_sk__product_sk__ref_product_dim_  [RUN]
+[2024-12-12T08:08:17.515+0000] {subprocess.py:93} INFO - [0m08:08:17  91 of 112 PASS relationships_fact_sales_customer_sk__customer_sk__ref_customer_dim_  [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:17.520+0000] {subprocess.py:93} INFO - [0m08:08:17  94 of 112 START test relationships_fact_sales_store_sk__store_sk__ref_store_dim_  [RUN]
+[2024-12-12T08:08:17.571+0000] {subprocess.py:93} INFO - [0m08:08:17  92 of 112 PASS relationships_fact_sales_date_sk__date_sk__ref_data_dim_ ........ [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:17.581+0000] {subprocess.py:93} INFO - [0m08:08:17  95 of 112 START test relationships_fact_sales_supplier_sk__supplier_sk__ref_supplier_dim_  [RUN]
+[2024-12-12T08:08:17.663+0000] {subprocess.py:93} INFO - [0m08:08:17  93 of 112 PASS relationships_fact_sales_product_sk__product_sk__ref_product_dim_  [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:17.673+0000] {subprocess.py:93} INFO - [0m08:08:17  96 of 112 START test unique_brand_dim_brand_id ................................. [RUN]
+[2024-12-12T08:08:17.756+0000] {subprocess.py:93} INFO - [0m08:08:17  94 of 112 PASS relationships_fact_sales_store_sk__store_sk__ref_store_dim_ ..... [[32mPASS[0m in 0.23s]
+[2024-12-12T08:08:17.770+0000] {subprocess.py:93} INFO - [0m08:08:17  97 of 112 START test unique_brand_dim_brand_sk ................................. [RUN]
+[2024-12-12T08:08:17.842+0000] {subprocess.py:93} INFO - [0m08:08:17  95 of 112 PASS relationships_fact_sales_supplier_sk__supplier_sk__ref_supplier_dim_  [[32mPASS[0m in 0.26s]
+[2024-12-12T08:08:17.857+0000] {subprocess.py:93} INFO - [0m08:08:17  98 of 112 START test unique_customer_dim_customer_sk ........................... [RUN]
+[2024-12-12T08:08:17.922+0000] {subprocess.py:93} INFO - [0m08:08:17  96 of 112 PASS unique_brand_dim_brand_id ....................................... [[32mPASS[0m in 0.25s]
+[2024-12-12T08:08:17.928+0000] {subprocess.py:93} INFO - [0m08:08:17  99 of 112 START test unique_data_dim_date_sk ................................... [RUN]
+[2024-12-12T08:08:17.977+0000] {subprocess.py:93} INFO - [0m08:08:17  97 of 112 PASS unique_brand_dim_brand_sk ....................................... [[32mPASS[0m in 0.20s]
+[2024-12-12T08:08:17.982+0000] {subprocess.py:93} INFO - [0m08:08:17  100 of 112 START test unique_fact_sales_transaction_id ......................... [RUN]
+[2024-12-12T08:08:18.019+0000] {subprocess.py:93} INFO - [0m08:08:18  98 of 112 PASS unique_customer_dim_customer_sk ................................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:18.022+0000] {subprocess.py:93} INFO - [0m08:08:18  101 of 112 START test unique_product_dim_product_sk ............................ [RUN]
+[2024-12-12T08:08:18.088+0000] {subprocess.py:93} INFO - [0m08:08:18  99 of 112 PASS unique_data_dim_date_sk ......................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:18.096+0000] {subprocess.py:93} INFO - [0m08:08:18  102 of 112 START test unique_stg_brand_Brand_ID ................................ [RUN]
+[2024-12-12T08:08:18.140+0000] {subprocess.py:93} INFO - [0m08:08:18  100 of 112 PASS unique_fact_sales_transaction_id ............................... [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:18.144+0000] {subprocess.py:93} INFO - [0m08:08:18  103 of 112 START test unique_stg_customers_account_id .......................... [RUN]
+[2024-12-12T08:08:18.180+0000] {subprocess.py:93} INFO - [0m08:08:18  101 of 112 PASS unique_product_dim_product_sk .................................. [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:18.187+0000] {subprocess.py:93} INFO - [0m08:08:18  104 of 112 START test unique_stg_date_date_sk .................................. [RUN]
+[2024-12-12T08:08:18.256+0000] {subprocess.py:93} INFO - [0m08:08:18  102 of 112 PASS unique_stg_brand_Brand_ID ...................................... [[32mPASS[0m in 0.16s]
+[2024-12-12T08:08:18.261+0000] {subprocess.py:93} INFO - [0m08:08:18  105 of 112 START test unique_stg_date_full_date ................................ [RUN]
+[2024-12-12T08:08:18.311+0000] {subprocess.py:93} INFO - [0m08:08:18  103 of 112 WARN 1 unique_stg_customers_account_id .............................. [[33mWARN 1[0m in 0.17s]
+[2024-12-12T08:08:18.315+0000] {subprocess.py:93} INFO - [0m08:08:18  106 of 112 START test unique_stg_order_details_order_detail_id ................. [RUN]
+[2024-12-12T08:08:18.360+0000] {subprocess.py:93} INFO - [0m08:08:18  104 of 112 PASS unique_stg_date_date_sk ........................................ [[32mPASS[0m in 0.17s]
+[2024-12-12T08:08:18.366+0000] {subprocess.py:93} INFO - [0m08:08:18  107 of 112 START test unique_stg_order_order_id ................................ [RUN]
+[2024-12-12T08:08:18.442+0000] {subprocess.py:93} INFO - [0m08:08:18  105 of 112 PASS unique_stg_date_full_date ...................................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:18.445+0000] {subprocess.py:93} INFO - [0m08:08:18  108 of 112 START test unique_stg_product_Product_ID ............................ [RUN]
+[2024-12-12T08:08:18.499+0000] {subprocess.py:93} INFO - [0m08:08:18  106 of 112 PASS unique_stg_order_details_order_detail_id ....................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:18.501+0000] {subprocess.py:93} INFO - [0m08:08:18  109 of 112 START test unique_stg_store_Store_ID ................................ [RUN]
+[2024-12-12T08:08:18.548+0000] {subprocess.py:93} INFO - [0m08:08:18  107 of 112 PASS unique_stg_order_order_id ...................................... [[32mPASS[0m in 0.18s]
+[2024-12-12T08:08:18.560+0000] {subprocess.py:93} INFO - [0m08:08:18  110 of 112 START test unique_store_dim_store_id ................................ [RUN]
+[2024-12-12T08:08:18.638+0000] {subprocess.py:93} INFO - [0m08:08:18  108 of 112 PASS unique_stg_product_Product_ID .................................. [[32mPASS[0m in 0.19s]
+[2024-12-12T08:08:18.645+0000] {subprocess.py:93} INFO - [0m08:08:18  111 of 112 START test unique_store_dim_store_sk ................................ [RUN]
+[2024-12-12T08:08:18.781+0000] {subprocess.py:93} INFO - [0m08:08:18  109 of 112 PASS unique_stg_store_Store_ID ...................................... [[32mPASS[0m in 0.28s]
+[2024-12-12T08:08:18.786+0000] {subprocess.py:93} INFO - [0m08:08:18  112 of 112 START test unique_supplier_dim_supplier_sk .......................... [RUN]
+[2024-12-12T08:08:18.804+0000] {subprocess.py:93} INFO - [0m08:08:18  110 of 112 PASS unique_store_dim_store_id ...................................... [[32mPASS[0m in 0.24s]
+[2024-12-12T08:08:18.912+0000] {subprocess.py:93} INFO - [0m08:08:18  111 of 112 PASS unique_store_dim_store_sk ...................................... [[32mPASS[0m in 0.26s]
+[2024-12-12T08:08:18.935+0000] {subprocess.py:93} INFO - [0m08:08:18  112 of 112 PASS unique_supplier_dim_supplier_sk ................................ [[32mPASS[0m in 0.15s]
+[2024-12-12T08:08:18.963+0000] {subprocess.py:93} INFO - [0m08:08:18
+[2024-12-12T08:08:18.964+0000] {subprocess.py:93} INFO - [0m08:08:18  Finished running 112 data tests in 0 hours 0 minutes and 7.96 seconds (7.96s).
+[2024-12-12T08:08:19.152+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.153+0000] {subprocess.py:93} INFO - [0m08:08:19  [33mCompleted with 2 warnings:[0m
+[2024-12-12T08:08:19.154+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.154+0000] {subprocess.py:93} INFO - [0m08:08:19  [33mWarning in test gender_is_valid_stg_customers_gender (models/staging/staging.yml)[0m
+[2024-12-12T08:08:19.155+0000] {subprocess.py:93} INFO - [0m08:08:19  Got 109 results, configured to warn if != 0
+[2024-12-12T08:08:19.155+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.156+0000] {subprocess.py:93} INFO - [0m08:08:19    compiled code at target/compiled/ecommerce/models/staging/staging.yml/gender_is_valid_stg_customers_gender.sql
+[2024-12-12T08:08:19.157+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.157+0000] {subprocess.py:93} INFO - [0m08:08:19    See test failures:
+[2024-12-12T08:08:19.157+0000] {subprocess.py:93} INFO -   ------------------------------------------------------------------------------------------
+[2024-12-12T08:08:19.158+0000] {subprocess.py:93} INFO -   select * from "ecommerce"."oltp__sad_test_failures"."gender_is_valid_stg_customers_gender"
+[2024-12-12T08:08:19.158+0000] {subprocess.py:93} INFO -   ------------------------------------------------------------------------------------------
+[2024-12-12T08:08:19.158+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.158+0000] {subprocess.py:93} INFO - [0m08:08:19  [33mWarning in test unique_stg_customers_account_id (models/staging/staging.yml)[0m
+[2024-12-12T08:08:19.159+0000] {subprocess.py:93} INFO - [0m08:08:19  Got 1 result, configured to warn if != 0
+[2024-12-12T08:08:19.159+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.160+0000] {subprocess.py:93} INFO - [0m08:08:19    compiled code at target/compiled/ecommerce/models/staging/staging.yml/unique_stg_customers_account_id.sql
+[2024-12-12T08:08:19.160+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.161+0000] {subprocess.py:93} INFO - [0m08:08:19    See test failures:
+[2024-12-12T08:08:19.161+0000] {subprocess.py:93} INFO -   -------------------------------------------------------------------------------------
+[2024-12-12T08:08:19.161+0000] {subprocess.py:93} INFO -   select * from "ecommerce"."oltp__sad_test_failures"."unique_stg_customers_account_id"
+[2024-12-12T08:08:19.161+0000] {subprocess.py:93} INFO -   -------------------------------------------------------------------------------------
+[2024-12-12T08:08:19.162+0000] {subprocess.py:93} INFO - [0m08:08:19
+[2024-12-12T08:08:19.162+0000] {subprocess.py:93} INFO - [0m08:08:19  Done. PASS=110 WARN=2 ERROR=0 SKIP=0 TOTAL=112
+[2024-12-12T08:08:20.153+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T08:08:20.153+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:08:20.182+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_test, run_id=manual__2024-12-12T08:05:08.618053+00:00, execution_date=20241212T080508, start_date=20241212T080807, end_date=20241212T080820
+[2024-12-12T08:08:20.228+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T08:08:20.244+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:08:20.245+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

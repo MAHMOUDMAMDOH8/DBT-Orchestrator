@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  pgdb:
+    image: postgres:13
+    container_name: pgdb
+    environment:
+      POSTGRES_USER: pgdb
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ecommerce
+    volumes:
+      - pgdb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pgdb"]
+      interval: 5s
+      retries: 5
+    ports:
+      - "5433:5432" 
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true
+
+volumes:
+  pgdb_data:

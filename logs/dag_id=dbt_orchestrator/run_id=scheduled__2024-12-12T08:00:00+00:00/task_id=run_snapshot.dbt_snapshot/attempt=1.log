@@ -1,0 +1,38 @@
+[2024-12-12T08:15:05.500+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:15:05.527+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.run_snapshot.dbt_snapshot scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:15:05.536+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.run_snapshot.dbt_snapshot scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:15:05.536+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-12T08:15:05.548+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_snapshot.dbt_snapshot> on 2024-12-12 08:00:00+00:00
+[2024-12-12T08:15:05.554+0000] {standard_task_runner.py:63} INFO - Started process 423 to run task
+[2024-12-12T08:15:05.557+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'run_snapshot.dbt_snapshot', 'scheduled__2024-12-12T08:00:00+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp_s322qc1']
+[2024-12-12T08:15:05.558+0000] {standard_task_runner.py:91} INFO - Job 167: Subtask run_snapshot.dbt_snapshot
+[2024-12-12T08:15:05.604+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.run_snapshot.dbt_snapshot scheduled__2024-12-12T08:00:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:15:05.698+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='run_snapshot.dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T08:00:00+00:00'
+[2024-12-12T08:15:05.699+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:15:05.712+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:15:05.713+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt snapshot --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-12T08:15:05.726+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:15:07.654+0000] {subprocess.py:93} INFO - [0m08:15:07  Running with dbt=1.8.0
+[2024-12-12T08:15:08.047+0000] {subprocess.py:93} INFO - [0m08:15:08  Registered adapter: postgres=1.8.0
+[2024-12-12T08:15:08.517+0000] {subprocess.py:93} INFO - [0m08:15:08  Unable to do partial parsing because a project config has changed
+[2024-12-12T08:15:09.778+0000] {subprocess.py:93} INFO - [0m08:15:09  Encountered an error:
+[2024-12-12T08:15:09.779+0000] {subprocess.py:93} INFO - Compilation Error
+[2024-12-12T08:15:09.779+0000] {subprocess.py:93} INFO -   Snapshot 'snapshot.ecommerce.CDC_product' (snapshots/CDC_product.sql) depends on a source named 'ecommerce_oltp.products' which was not found
+[2024-12-12T08:15:10.654+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-12-12T08:15:10.654+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:15:10.665+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-12-12T08:15:10.668+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt_orchestrator, task_id=run_snapshot.dbt_snapshot, run_id=scheduled__2024-12-12T08:00:00+00:00, execution_date=20241212T080000, start_date=20241212T081505, end_date=20241212T081510
+[2024-12-12T08:15:10.680+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 167 for task run_snapshot.dbt_snapshot (Bash command failed. The command returned a non-zero exit code 2.; 423)
+[2024-12-12T08:15:10.703+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-12T08:15:10.737+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:15:10.744+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

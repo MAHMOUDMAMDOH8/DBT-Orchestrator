@@ -1,0 +1,309 @@
+version: 2
+
+models:
+  - name: customer_dim
+    description: >
+      This model is built from `ref('stg_customer')` and selects customer-related data, transforming it into a dimensional table for analytical purposes.
+    columns:
+      - name: customer_sk
+        description: >
+          A unique surrogate key for each customer.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: >
+          The full name of the customer.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: gender
+        description: >
+          The gender of the customer (e.g., Male, Female, Non-binary).
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: age
+        description: >
+          The age of the customer.
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: zip_code
+        description: >
+          The postal code of the customer's address.
+        data_type: varchar(50)
+
+      - name: country
+        description: >
+          The country where the customer resides.
+        data_type: varchar(50)
+
+      - name: city
+        description: >
+          The city where the customer resides.
+        data_type: varchar(50)
+
+      - name: account_id
+        description: >
+          A unique identifier for the customer's account.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: >
+          The source system or database from which the customer data was extracted.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+
+  - name: supplier_dim
+    description: >
+      This model is derived from the staging table `stg_suppliers` and represents supplier dimension data. 
+      It transforms supplier-related details into a dimensional table optimized for analytical queries.
+    columns:
+      - name: supplier_sk
+        description: >
+          A unique surrogate key for each supplier, used for dimensional analysis.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: Supplier_ID
+        description: >
+          The supplier's unique identifier from the source system.
+        data_type: varchar(50)
+
+
+      - name: supplier_name
+        description: >
+          The name of the supplier.
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: location
+        description: >
+          The location of the supplier (e.g., city, region, or address).
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: >
+          The source system or database where the supplier information was extracted from.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+  - name: store_dim
+    description: >
+      This model is derived from the staging table `stg_store` and represents store dimension data. 
+      It transforms store-related details into a dimensional table for analysis and reporting.
+    columns:
+      - name: store_sk
+        description: >
+          A unique surrogate key for each store, used for dimensional analysis.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: store_id
+        description: >
+          The store's unique identifier from the source system.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: store_name
+        description: >
+          The name of the store.
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: region
+        description: >
+          The region where the store is located (e.g., city, state, or region).
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: >
+          The source system or database from which the store data was extracted.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+  - name: brand_dim
+    description: >
+      This model is derived from the staging table `stg_brand` and represents brand dimension data.
+      It transforms brand-related details into a dimensional table for use in analysis and reporting.
+    columns:
+      - name: brand_sk
+        description: >
+          A unique surrogate key for each brand, used for dimensional analysis.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: brand_id
+        description: >
+          The brand's unique identifier from the source system.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: brand_name
+        description: >
+          The name of the brand.
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: brand_country
+        description: >
+          The country where the brand originates or is primarily based.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: start_date
+        description: >
+          The date when the brand was launched or started its operations.
+        data_type: date
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: >
+          The source system or database from which the brand data was extracted.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+  - name: product_dim
+    description: >
+      This model is derived from the staging table `stg_product` and represents product dimension data.
+      It transforms product-related details into a dimensional table for analysis and reporting.
+    columns:
+      - name: product_sk
+        description: >
+          A unique surrogate key for each product, used for dimensional analysis.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: >
+          The product's unique identifier from the source system.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: product_name
+        description: >
+          The name of the product.
+        data_type: varchar(100)
+        data_tests:
+          - not_null
+
+      - name: Subcategory_name
+        description: >
+          The name of the subcategory to which the product belongs.
+        data_type: varchar(100)
+
+      - name: Category_name
+        description: >
+          The name of the category to which the product belongs.
+        data_type: varchar(100)
+
+      - name: price
+        description: >
+          The price of the product.
+        data_type: decimal(10,2)
+        data_tests:
+          - not_null
+
+      - name: cost
+        description: >
+          The cost of the product.
+        data_type: decimal(10,2)
+        data_tests:
+          - not_null
+
+      - name: data_source
+        description: >
+          The source system or database from which the product data was extracted.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+  - name: date_dim
+    description: >
+      This model is derived from the staging table `stg_date` and represents date dimension data.
+      It transforms date-related details such as year, month, day, and names into a dimensional table for time-based analysis and reporting.
+    columns:
+      - name: date_sk
+        description: >
+          A unique surrogate key for each date, used for dimensional analysis.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+          - unique
+
+      - name: full_date
+        description: >
+          The full date in `YYYY-MM-DD` format.
+        data_type: date
+        data_tests:
+          - not_null
+
+      - name: year
+        description: >
+          The year extracted from the full date.
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: month
+        description: >
+          The month extracted from the full date.
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: day
+        description: >
+          The day of the month extracted from the full date.
+        data_type: int
+        data_tests:
+          - not_null
+
+      - name: day_name
+        description: >
+          The name of the day (e.g., Monday, Tuesday) extracted from the full date.
+        data_type: varchar(50)
+        data_tests:
+          - not_null
+
+      - name: month_name
+        description: >
+          The name of the month (e.g., January, February) extracted from the full date.
+        data_type: varchar(50)
+        data_tests:
+          - not_null

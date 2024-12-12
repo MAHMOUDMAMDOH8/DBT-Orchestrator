@@ -1,0 +1,40 @@
+[2024-12-12T09:26:05.337+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T09:26:05.367+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T09:00:00+00:00 [queued]>
+[2024-12-12T09:26:05.379+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T09:00:00+00:00 [queued]>
+[2024-12-12T09:26:05.379+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2024-12-12T09:26:05.393+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_dimensions.dbt_run_date_dim> on 2024-12-12 09:00:00+00:00
+[2024-12-12T09:26:05.400+0000] {standard_task_runner.py:63} INFO - Started process 3383 to run task
+[2024-12-12T09:26:05.402+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_dimensions.dbt_run_date_dim', 'scheduled__2024-12-12T09:00:00+00:00', '--job-id', '446', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmplvl0bf0b']
+[2024-12-12T09:26:05.403+0000] {standard_task_runner.py:91} INFO - Job 446: Subtask dbt_run_dimensions.dbt_run_date_dim
+[2024-12-12T09:26:05.453+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T09:00:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T09:26:05.548+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_dimensions.dbt_run_date_dim' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T09:00:00+00:00'
+[2024-12-12T09:26:05.549+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T09:26:05.563+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T09:26:05.563+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models date_dim']
+[2024-12-12T09:26:05.576+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T09:26:07.639+0000] {subprocess.py:93} INFO - [0m09:26:07  Running with dbt=1.8.0
+[2024-12-12T09:26:07.799+0000] {subprocess.py:93} INFO - [0m09:26:07  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T09:26:07.800+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T09:26:07.800+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T09:26:07.800+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T09:26:08.007+0000] {subprocess.py:93} INFO - [0m09:26:08  Registered adapter: postgres=1.8.0
+[2024-12-12T09:26:08.563+0000] {subprocess.py:93} INFO - [0m09:26:08  Unable to do partial parsing because of a version mismatch
+[2024-12-12T09:26:10.939+0000] {subprocess.py:93} INFO - [0m09:26:10  [[33mWARNING[0m]: Test 'test.ecommerce.relationships_fact_sales_date_sk__date_sk__ref_data_dim_.85cc1c8168' (models/olap_model/fact/fact.yml) depends on a node named 'data_dim' in package '' which was not found
+[2024-12-12T09:26:11.485+0000] {subprocess.py:93} INFO - [0m09:26:11  Found 15 models, 1 snapshot, 111 data tests, 12 sources, 430 macros
+[2024-12-12T09:26:11.490+0000] {subprocess.py:93} INFO - [0m09:26:11
+[2024-12-12T09:26:11.864+0000] {subprocess.py:93} INFO - [0m09:26:11  Concurrency: 3 threads (target='dev')
+[2024-12-12T09:26:11.865+0000] {subprocess.py:93} INFO - [0m09:26:11
+[2024-12-12T09:26:11.871+0000] {subprocess.py:93} INFO - [0m09:26:11  1 of 1 START sql incremental model olap_model.date_dim ......................... [RUN]
+[2024-12-12T09:26:12.031+0000] {subprocess.py:93} INFO - [0m09:26:12  1 of 1 OK created sql incremental model olap_model.date_dim .................... [[32mSELECT 402[0m in 0.16s]
+[2024-12-12T09:26:12.044+0000] {subprocess.py:93} INFO - [0m09:26:12
+[2024-12-12T09:26:12.044+0000] {subprocess.py:93} INFO - [0m09:26:12  Finished running 1 incremental model in 0 hours 0 minutes and 0.55 seconds (0.55s).
+[2024-12-12T09:26:12.126+0000] {subprocess.py:93} INFO - [0m09:26:12
+[2024-12-12T09:26:12.126+0000] {subprocess.py:93} INFO - [0m09:26:12  [32mCompleted successfully[0m
+[2024-12-12T09:26:12.127+0000] {subprocess.py:93} INFO - [0m09:26:12
+[2024-12-12T09:26:12.128+0000] {subprocess.py:93} INFO - [0m09:26:12  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-12-12T09:26:13.231+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T09:26:13.232+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T09:26:13.258+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_run_dimensions.dbt_run_date_dim, run_id=scheduled__2024-12-12T09:00:00+00:00, execution_date=20241212T090000, start_date=20241212T092605, end_date=20241212T092613
+[2024-12-12T09:26:13.282+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T09:26:13.316+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T09:26:13.319+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,43 @@
+[2024-12-11T16:06:34.821+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-11T16:06:34.844+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_snapshot_group.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [queued]>
+[2024-12-11T16:06:34.853+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_snapshot_group.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [queued]>
+[2024-12-11T16:06:34.854+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-11T16:06:34.866+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_snapshot_group.dbt_snapshot> on 2024-12-11 15:45:00+00:00
+[2024-12-11T16:06:34.872+0000] {standard_task_runner.py:63} INFO - Started process 96 to run task
+[2024-12-11T16:06:34.874+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_snapshot_group.dbt_snapshot', 'scheduled__2024-12-11T15:45:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpybff4o3d']
+[2024-12-11T16:06:34.875+0000] {standard_task_runner.py:91} INFO - Job 23: Subtask dbt_snapshot_group.dbt_snapshot
+[2024-12-11T16:06:34.918+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_snapshot_group.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [running]> on host 49f8df2c9427
+[2024-12-11T16:06:34.992+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_snapshot_group.dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2024-12-11T15:45:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-11T15:45:00+00:00'
+[2024-12-11T16:06:34.993+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-11T16:06:35.004+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-11T16:06:35.005+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt snapshot --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-11T16:06:35.016+0000] {subprocess.py:86} INFO - Output:
+[2024-12-11T16:06:36.822+0000] {subprocess.py:93} INFO - [0m16:06:36  Running with dbt=1.8.0
+[2024-12-11T16:06:36.959+0000] {subprocess.py:93} INFO - [0m16:06:36  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-11T16:06:36.960+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-11T16:06:36.960+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-11T16:06:36.960+0000] {subprocess.py:93} INFO - information.
+[2024-12-11T16:06:37.111+0000] {subprocess.py:93} INFO - [0m16:06:37  Registered adapter: postgres=1.8.0
+[2024-12-11T16:06:37.495+0000] {subprocess.py:93} INFO - [0m16:06:37  Unable to do partial parsing because of a version mismatch
+[2024-12-11T16:06:39.826+0000] {subprocess.py:93} INFO - [0m16:06:39  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2024-12-11T16:06:39.827+0000] {subprocess.py:93} INFO - There are 2 unused configuration paths:
+[2024-12-11T16:06:39.827+0000] {subprocess.py:93} INFO - - models.ecommerce.marts.fact
+[2024-12-11T16:06:39.827+0000] {subprocess.py:93} INFO - - models.ecommerce.marts.dimensions
+[2024-12-11T16:06:40.074+0000] {subprocess.py:93} INFO - [0m16:06:40  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-11T16:06:40.079+0000] {subprocess.py:93} INFO - [0m16:06:40
+[2024-12-11T16:06:40.417+0000] {subprocess.py:93} INFO - [0m16:06:40  Concurrency: 3 threads (target='dev')
+[2024-12-11T16:06:40.419+0000] {subprocess.py:93} INFO - [0m16:06:40
+[2024-12-11T16:06:40.425+0000] {subprocess.py:93} INFO - [0m16:06:40  1 of 1 START snapshot snapshots.CDC_product .................................... [RUN]
+[2024-12-11T16:06:40.637+0000] {subprocess.py:93} INFO - [0m16:06:40  1 of 1 OK snapshotted snapshots.CDC_product .................................... [[32mSELECT 100[0m in 0.21s]
+[2024-12-11T16:06:40.655+0000] {subprocess.py:93} INFO - [0m16:06:40
+[2024-12-11T16:06:40.655+0000] {subprocess.py:93} INFO - [0m16:06:40  Finished running 1 snapshot in 0 hours 0 minutes and 0.57 seconds (0.57s).
+[2024-12-11T16:06:40.736+0000] {subprocess.py:93} INFO - [0m16:06:40
+[2024-12-11T16:06:40.737+0000] {subprocess.py:93} INFO - [0m16:06:40  [32mCompleted successfully[0m
+[2024-12-11T16:06:40.738+0000] {subprocess.py:93} INFO - [0m16:06:40
+[2024-12-11T16:06:40.738+0000] {subprocess.py:93} INFO - [0m16:06:40  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-12-11T16:06:41.627+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-11T16:06:41.628+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-11T16:06:41.652+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_snapshot_group.dbt_snapshot, run_id=scheduled__2024-12-11T15:45:00+00:00, execution_date=20241211T154500, start_date=20241211T160634, end_date=20241211T160641
+[2024-12-11T16:06:41.703+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-11T16:06:41.720+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-11T16:06:41.722+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

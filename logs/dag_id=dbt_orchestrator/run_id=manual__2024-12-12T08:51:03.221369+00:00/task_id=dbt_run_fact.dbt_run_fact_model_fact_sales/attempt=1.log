@@ -1,0 +1,56 @@
+[2024-12-12T08:51:44.586+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:51:44.609+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_fact.dbt_run_fact_model_fact_sales manual__2024-12-12T08:51:03.221369+00:00 [queued]>
+[2024-12-12T08:51:44.620+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_fact.dbt_run_fact_model_fact_sales manual__2024-12-12T08:51:03.221369+00:00 [queued]>
+[2024-12-12T08:51:44.620+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-12T08:51:44.631+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_fact.dbt_run_fact_model_fact_sales> on 2024-12-12 08:51:03.221369+00:00
+[2024-12-12T08:51:44.637+0000] {standard_task_runner.py:63} INFO - Started process 1750 to run task
+[2024-12-12T08:51:44.640+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_fact.dbt_run_fact_model_fact_sales', 'manual__2024-12-12T08:51:03.221369+00:00', '--job-id', '332', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpx2fuarh1']
+[2024-12-12T08:51:44.641+0000] {standard_task_runner.py:91} INFO - Job 332: Subtask dbt_run_fact.dbt_run_fact_model_fact_sales
+[2024-12-12T08:51:44.697+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_fact.dbt_run_fact_model_fact_sales manual__2024-12-12T08:51:03.221369+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:51:44.812+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_fact.dbt_run_fact_model_fact_sales' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:51:03.221369+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-12T08:51:03.221369+00:00'
+[2024-12-12T08:51:44.813+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:51:44.828+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:51:44.829+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models fact_sales']
+[2024-12-12T08:51:44.851+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:51:47.096+0000] {subprocess.py:93} INFO - [0m08:51:47  Running with dbt=1.8.0
+[2024-12-12T08:51:47.277+0000] {subprocess.py:93} INFO - [0m08:51:47  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:51:47.277+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:51:47.278+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:51:47.278+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:51:47.493+0000] {subprocess.py:93} INFO - [0m08:51:47  Registered adapter: postgres=1.8.0
+[2024-12-12T08:51:48.374+0000] {subprocess.py:93} INFO - [0m08:51:48  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:51:48.379+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.727+0000] {subprocess.py:93} INFO - [0m08:51:48  Concurrency: 3 threads (target='dev')
+[2024-12-12T08:51:48.729+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.735+0000] {subprocess.py:93} INFO - [0m08:51:48  1 of 1 START sql incremental model oltp_fact.fact_sales ........................ [RUN]
+[2024-12-12T08:51:48.862+0000] {subprocess.py:93} INFO - [0m08:51:48  1 of 1 ERROR creating sql incremental model oltp_fact.fact_sales ............... [[31mERROR[0m in 0.12s]
+[2024-12-12T08:51:48.879+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.880+0000] {subprocess.py:93} INFO - [0m08:51:48  Finished running 1 incremental model in 0 hours 0 minutes and 0.50 seconds (0.50s).
+[2024-12-12T08:51:48.965+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.966+0000] {subprocess.py:93} INFO - [0m08:51:48  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-12-12T08:51:48.967+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO - [0m08:51:48    Database Error in model fact_sales (models/olap_model/fact/fact_sales.sql)
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO -   relation "oltp_dimensions.data_dim" does not exist
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO -   LINE 56:     left join "ecommerce"."oltp_dimensions"."data_dim" d
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO -                          ^
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO -   compiled code at target/run/ecommerce/models/olap_model/fact/fact_sales.sql
+[2024-12-12T08:51:48.968+0000] {subprocess.py:93} INFO - [0m08:51:48
+[2024-12-12T08:51:48.969+0000] {subprocess.py:93} INFO - [0m08:51:48  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-12-12T08:51:49.964+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-12-12T08:51:49.964+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:51:49.976+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-12-12T08:51:49.980+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt_orchestrator, task_id=dbt_run_fact.dbt_run_fact_model_fact_sales, run_id=manual__2024-12-12T08:51:03.221369+00:00, execution_date=20241212T085103, start_date=20241212T085144, end_date=20241212T085149
+[2024-12-12T08:51:49.996+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 332 for task dbt_run_fact.dbt_run_fact_model_fact_sales (Bash command failed. The command returned a non-zero exit code 1.; 1750)
+[2024-12-12T08:51:50.026+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-12T08:51:50.058+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:51:50.062+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

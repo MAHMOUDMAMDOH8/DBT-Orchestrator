@@ -1,0 +1,38 @@
+[2024-12-11T16:04:18.414+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-11T16:04:18.443+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [queued]>
+[2024-12-11T16:04:18.452+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [queued]>
+[2024-12-11T16:04:18.452+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-11T16:04:18.464+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_snapshot> on 2024-12-11 15:45:00+00:00
+[2024-12-11T16:04:18.470+0000] {standard_task_runner.py:63} INFO - Started process 82 to run task
+[2024-12-11T16:04:18.473+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_snapshot', 'scheduled__2024-12-11T15:45:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp6c7h_dn_']
+[2024-12-11T16:04:18.474+0000] {standard_task_runner.py:91} INFO - Job 21: Subtask dbt_snapshot
+[2024-12-11T16:04:18.524+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_snapshot scheduled__2024-12-11T15:45:00+00:00 [running]> on host 49f8df2c9427
+[2024-12-11T16:04:18.613+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2024-12-11T15:45:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-11T15:45:00+00:00'
+[2024-12-11T16:04:18.614+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-11T16:04:18.625+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-11T16:04:18.626+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt snapshot --profiles-dir /opt/***/dbt/profiles.yml --project-dir /opt/***/dbt/ecommerce/dbt_project.yml']
+[2024-12-11T16:04:18.637+0000] {subprocess.py:86} INFO - Output:
+[2024-12-11T16:04:20.662+0000] {subprocess.py:93} INFO - [0m16:04:20  Running with dbt=1.8.0
+[2024-12-11T16:04:20.664+0000] {subprocess.py:93} INFO - [0m16:04:20  Encountered an error:
+[2024-12-11T16:04:20.664+0000] {subprocess.py:93} INFO - Runtime Error
+[2024-12-11T16:04:20.664+0000] {subprocess.py:93} INFO -   No dbt_project.yml found at expected path /opt/***/dbt/ecommerce/dbt_project.yml/dbt_project.yml
+[2024-12-11T16:04:20.664+0000] {subprocess.py:93} INFO -   Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+[2024-12-11T16:04:20.665+0000] {subprocess.py:93} INFO - 
+[2024-12-11T16:04:21.711+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-12-11T16:04:21.711+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-11T16:04:21.723+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-12-11T16:04:21.726+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt_orchestrator, task_id=dbt_snapshot, run_id=scheduled__2024-12-11T15:45:00+00:00, execution_date=20241211T154500, start_date=20241211T160418, end_date=20241211T160421
+[2024-12-11T16:04:21.741+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 21 for task dbt_snapshot (Bash command failed. The command returned a non-zero exit code 2.; 82)
+[2024-12-11T16:04:21.773+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-11T16:04:21.791+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-11T16:04:21.793+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

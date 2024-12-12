@@ -1,0 +1,29 @@
+[2024-12-12T08:33:26.931+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:33:26.964+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:33:26.982+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:33:26.982+0000] {taskinstance.py:2306} INFO - Starting attempt 5 of 5
+[2024-12-12T08:33:27.003+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_dimensions.dbt_run_date_dim> on 2024-12-12 08:00:00+00:00
+[2024-12-12T08:33:27.012+0000] {standard_task_runner.py:63} INFO - Started process 1155 to run task
+[2024-12-12T08:33:27.015+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_dimensions.dbt_run_date_dim', 'scheduled__2024-12-12T08:00:00+00:00', '--job-id', '270', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpogt5p_9u']
+[2024-12-12T08:33:27.017+0000] {standard_task_runner.py:91} INFO - Job 270: Subtask dbt_run_dimensions.dbt_run_date_dim
+[2024-12-12T08:33:27.083+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_dimensions.dbt_run_date_dim scheduled__2024-12-12T08:00:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:33:27.214+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_dimensions.dbt_run_date_dim' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T08:00:00+00:00'
+[2024-12-12T08:33:27.215+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:33:27.235+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:33:27.236+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models models/olap_model/dimensions/date_dim']
+[2024-12-12T08:33:27.252+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:33:30.261+0000] {subprocess.py:93} INFO - [0m08:33:30  Running with dbt=1.8.0
+[2024-12-12T08:33:30.544+0000] {subprocess.py:93} INFO - [0m08:33:30  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:33:30.545+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:33:30.545+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:33:30.546+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:33:30.818+0000] {subprocess.py:93} INFO - [0m08:33:30  Registered adapter: postgres=1.8.0
+[2024-12-12T08:33:32.556+0000] {subprocess.py:93} INFO - [0m08:33:32  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:33:32.567+0000] {subprocess.py:93} INFO - [0m08:33:32  The selection criterion 'models/olap_model/dimensions/date_dim' does not match any enabled nodes
+[2024-12-12T08:33:32.571+0000] {subprocess.py:93} INFO - [0m08:33:32
+[2024-12-12T08:33:32.573+0000] {subprocess.py:93} INFO - [0m08:33:32  Nothing to do. Try checking your model configs and model specification args
+[2024-12-12T08:33:33.709+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T08:33:33.711+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:33:33.750+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_run_dimensions.dbt_run_date_dim, run_id=scheduled__2024-12-12T08:00:00+00:00, execution_date=20241212T080000, start_date=20241212T083326, end_date=20241212T083333
+[2024-12-12T08:33:33.800+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T08:33:33.809+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

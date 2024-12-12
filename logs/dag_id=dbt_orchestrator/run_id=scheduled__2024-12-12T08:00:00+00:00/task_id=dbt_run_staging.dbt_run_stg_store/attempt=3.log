@@ -1,0 +1,30 @@
+[2024-12-12T08:27:58.097+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-12T08:27:58.143+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_store scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:27:58.165+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_store scheduled__2024-12-12T08:00:00+00:00 [queued]>
+[2024-12-12T08:27:58.166+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 3
+[2024-12-12T08:27:58.200+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_staging.dbt_run_stg_store> on 2024-12-12 08:00:00+00:00
+[2024-12-12T08:27:58.209+0000] {standard_task_runner.py:63} INFO - Started process 872 to run task
+[2024-12-12T08:27:58.213+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_run_staging.dbt_run_stg_store', 'scheduled__2024-12-12T08:00:00+00:00', '--job-id', '226', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmppvozmkw2']
+[2024-12-12T08:27:58.215+0000] {standard_task_runner.py:91} INFO - Job 226: Subtask dbt_run_staging.dbt_run_stg_store
+[2024-12-12T08:27:58.332+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_run_staging.dbt_run_stg_store scheduled__2024-12-12T08:00:00+00:00 [running]> on host 34fdc836a0bb
+[2024-12-12T08:27:58.511+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ma7moud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_run_staging.dbt_run_stg_store' AIRFLOW_CTX_EXECUTION_DATE='2024-12-12T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-12T08:00:00+00:00'
+[2024-12-12T08:27:58.512+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-12T08:27:58.533+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-12T08:27:58.534+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce --models models/staging/stg_store']
+[2024-12-12T08:27:58.553+0000] {subprocess.py:86} INFO - Output:
+[2024-12-12T08:28:03.028+0000] {subprocess.py:93} INFO - [0m08:28:03  Running with dbt=1.8.0
+[2024-12-12T08:28:03.601+0000] {subprocess.py:93} INFO - [0m08:28:03  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-12T08:28:03.601+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-12T08:28:03.602+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-12T08:28:03.602+0000] {subprocess.py:93} INFO - information.
+[2024-12-12T08:28:04.220+0000] {subprocess.py:93} INFO - [0m08:28:04  Registered adapter: postgres=1.8.0
+[2024-12-12T08:28:06.302+0000] {subprocess.py:93} INFO - [0m08:28:06  Found 15 models, 1 snapshot, 112 data tests, 12 sources, 430 macros
+[2024-12-12T08:28:06.312+0000] {subprocess.py:93} INFO - [0m08:28:06  The selection criterion 'models/staging/stg_store' does not match any enabled nodes
+[2024-12-12T08:28:06.316+0000] {subprocess.py:93} INFO - [0m08:28:06
+[2024-12-12T08:28:06.320+0000] {subprocess.py:93} INFO - [0m08:28:06  Nothing to do. Try checking your model configs and model specification args
+[2024-12-12T08:28:07.566+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-12T08:28:07.567+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-12T08:28:07.603+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt_orchestrator, task_id=dbt_run_staging.dbt_run_stg_store, run_id=scheduled__2024-12-12T08:00:00+00:00, execution_date=20241212T080000, start_date=20241212T082758, end_date=20241212T082807
+[2024-12-12T08:28:07.653+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-12T08:28:07.696+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-12T08:28:07.698+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

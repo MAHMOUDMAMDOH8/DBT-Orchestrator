@@ -1,0 +1,85 @@
+[2024-12-11T15:47:01.717+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-11T15:47:01.743+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_connection_check.dbt_debug scheduled__2024-12-11T15:30:00+00:00 [queued]>
+[2024-12-11T15:47:01.749+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_orchestrator.dbt_connection_check.dbt_debug scheduled__2024-12-11T15:30:00+00:00 [queued]>
+[2024-12-11T15:47:01.750+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-12-11T15:47:01.762+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_connection_check.dbt_debug> on 2024-12-11 15:30:00+00:00
+[2024-12-11T15:47:01.768+0000] {standard_task_runner.py:63} INFO - Started process 59 to run task
+[2024-12-11T15:47:01.770+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt_orchestrator', 'dbt_connection_check.dbt_debug', 'scheduled__2024-12-11T15:30:00+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpxgtgx_47']
+[2024-12-11T15:47:01.772+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask dbt_connection_check.dbt_debug
+[2024-12-11T15:47:01.813+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt_orchestrator.dbt_connection_check.dbt_debug scheduled__2024-12-11T15:30:00+00:00 [running]> on host e067f37bba45
+[2024-12-11T15:47:01.887+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mahmoud' AIRFLOW_CTX_DAG_ID='dbt_orchestrator' AIRFLOW_CTX_TASK_ID='dbt_connection_check.dbt_debug' AIRFLOW_CTX_EXECUTION_DATE='2024-12-11T15:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-11T15:30:00+00:00'
+[2024-12-11T15:47:01.887+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-11T15:47:01.897+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-11T15:47:01.898+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'dbt debug --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt/ecommerce']
+[2024-12-11T15:47:01.910+0000] {subprocess.py:86} INFO - Output:
+[2024-12-11T15:47:03.731+0000] {subprocess.py:93} INFO - [0m15:47:03  Running with dbt=1.8.0
+[2024-12-11T15:47:03.742+0000] {subprocess.py:93} INFO - [0m15:47:03  dbt version: 1.8.0
+[2024-12-11T15:47:03.743+0000] {subprocess.py:93} INFO - [0m15:47:03  python version: 3.9.19
+[2024-12-11T15:47:03.743+0000] {subprocess.py:93} INFO - [0m15:47:03  python path: /home/***/.local/bin/python
+[2024-12-11T15:47:03.744+0000] {subprocess.py:93} INFO - [0m15:47:03  os info: Linux-6.8.0-49-generic-x86_64-with-glibc2.36
+[2024-12-11T15:47:03.812+0000] {subprocess.py:93} INFO - [0m15:47:03  Using profiles dir at /opt/***/dbt
+[2024-12-11T15:47:03.813+0000] {subprocess.py:93} INFO - [0m15:47:03  Using profiles.yml file at /opt/***/dbt/profiles.yml
+[2024-12-11T15:47:03.814+0000] {subprocess.py:93} INFO - [0m15:47:03  Using dbt_project.yml file at /opt/***/dbt/ecommerce/dbt_project.yml
+[2024-12-11T15:47:03.814+0000] {subprocess.py:93} INFO - [0m15:47:03  adapter type: postgres
+[2024-12-11T15:47:03.815+0000] {subprocess.py:93} INFO - [0m15:47:03  adapter version: 1.8.0
+[2024-12-11T15:47:03.892+0000] {subprocess.py:93} INFO - [0m15:47:03  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-11T15:47:03.892+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-11T15:47:03.892+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-11T15:47:03.892+0000] {subprocess.py:93} INFO - information.
+[2024-12-11T15:47:03.937+0000] {subprocess.py:93} INFO - [0m15:47:03  Configuration:
+[2024-12-11T15:47:03.937+0000] {subprocess.py:93} INFO - [0m15:47:03    profiles.yml file [[32mOK found and valid[0m]
+[2024-12-11T15:47:03.938+0000] {subprocess.py:93} INFO - [0m15:47:03    dbt_project.yml file [[32mOK found and valid[0m]
+[2024-12-11T15:47:03.939+0000] {subprocess.py:93} INFO - [0m15:47:03  Required dependencies:
+[2024-12-11T15:47:03.945+0000] {subprocess.py:93} INFO - [0m15:47:03   - git [[31mERROR[0m]
+[2024-12-11T15:47:03.946+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:03.946+0000] {subprocess.py:93} INFO - [0m15:47:03  Connection:
+[2024-12-11T15:47:03.946+0000] {subprocess.py:93} INFO - [0m15:47:03    host: 172.19.0.2
+[2024-12-11T15:47:03.947+0000] {subprocess.py:93} INFO - [0m15:47:03    port: 5432
+[2024-12-11T15:47:03.947+0000] {subprocess.py:93} INFO - [0m15:47:03    user: pgdb
+[2024-12-11T15:47:03.948+0000] {subprocess.py:93} INFO - [0m15:47:03    database: ecommerce
+[2024-12-11T15:47:03.948+0000] {subprocess.py:93} INFO - [0m15:47:03    schema: oltp
+[2024-12-11T15:47:03.949+0000] {subprocess.py:93} INFO - [0m15:47:03    connect_timeout: 10
+[2024-12-11T15:47:03.949+0000] {subprocess.py:93} INFO - [0m15:47:03    role: None
+[2024-12-11T15:47:03.950+0000] {subprocess.py:93} INFO - [0m15:47:03    search_path: None
+[2024-12-11T15:47:03.950+0000] {subprocess.py:93} INFO - [0m15:47:03    keepalives_idle: 0
+[2024-12-11T15:47:03.951+0000] {subprocess.py:93} INFO - [0m15:47:03    sslmode: None
+[2024-12-11T15:47:03.951+0000] {subprocess.py:93} INFO - [0m15:47:03    sslcert: None
+[2024-12-11T15:47:03.952+0000] {subprocess.py:93} INFO - [0m15:47:03    sslkey: None
+[2024-12-11T15:47:03.952+0000] {subprocess.py:93} INFO - [0m15:47:03    sslrootcert: None
+[2024-12-11T15:47:03.953+0000] {subprocess.py:93} INFO - [0m15:47:03    application_name: dbt
+[2024-12-11T15:47:03.953+0000] {subprocess.py:93} INFO - [0m15:47:03    retries: 1
+[2024-12-11T15:47:03.954+0000] {subprocess.py:93} INFO - [0m15:47:03  Registered adapter: postgres=1.8.0
+[2024-12-11T15:47:24.130+0000] {subprocess.py:93} INFO - [0m15:47:24    Connection test: [[31mERROR[0m]
+[2024-12-11T15:47:24.131+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.131+0000] {subprocess.py:93} INFO - [0m15:47:24  [31m2 checks failed:[0m
+[2024-12-11T15:47:24.131+0000] {subprocess.py:93} INFO - [0m15:47:24  Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+[2024-12-11T15:47:24.132+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.132+0000] {subprocess.py:93} INFO - [0m15:47:24  dbt was unable to connect to the specified database.
+[2024-12-11T15:47:24.132+0000] {subprocess.py:93} INFO - The database returned the following error:
+[2024-12-11T15:47:24.132+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.132+0000] {subprocess.py:93} INFO -   >Database Error
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO -   connection to server at "172.19.0.2", port 5432 failed: timeout expired
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO - Check your database credentials and try again. For more information, visit:
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/configure-your-profile
+[2024-12-11T15:47:24.133+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:24.134+0000] {subprocess.py:93} INFO - 
+[2024-12-11T15:47:25.065+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-12-11T15:47:25.066+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-11T15:47:25.077+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-12-11T15:47:25.080+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt_orchestrator, task_id=dbt_connection_check.dbt_debug, run_id=scheduled__2024-12-11T15:30:00+00:00, execution_date=20241211T153000, start_date=20241211T154701, end_date=20241211T154725
+[2024-12-11T15:47:25.092+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 10 for task dbt_connection_check.dbt_debug (Bash command failed. The command returned a non-zero exit code 1.; 59)
+[2024-12-11T15:47:25.113+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-11T15:47:25.127+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-11T15:47:25.129+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
