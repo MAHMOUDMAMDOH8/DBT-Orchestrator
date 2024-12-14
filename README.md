@@ -1,5 +1,8 @@
 # DBT-Orchestrator
 
+![Screenshot from 2024-12-14 16-24-52](https://github.com/user-attachments/assets/00a8d9f3-3488-44ab-a7b8-7c0b2a3a772b)
+
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Approach](#approach)
