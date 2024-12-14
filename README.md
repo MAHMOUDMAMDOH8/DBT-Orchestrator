@@ -314,6 +314,11 @@ erDiagram
     supplier_dim ||--o| fact_sales : supplies
 ```
 ## Data Lineage
+![Screenshot from 2024-12-14 16-13-20](https://github.com/user-attachments/assets/a035c0df-681a-4a1e-81c2-5dc2b4049363)
+
+![Screenshot from 2024-12-14 16-15-43](https://github.com/user-attachments/assets/f753b7da-ec45-4982-bfeb-703507006f21)
+
+
 
 
 ## Reporting
