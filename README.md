@@ -123,11 +123,8 @@ fact_sales: Aggregated sales metrics.
 
 ## ERD (Entity-Relationship Diagram)
 ### Logical Model
----
+
 ```mermaid 
-config:
-  theme: dark
----
 erDiagram
     CATEGORYS {
         INT Category_ID PK
@@ -233,11 +230,7 @@ erDiagram
     CUSTOMERS ||--o| CUSTOMERS_PHONE : has
 ```
 ## Data Warehouse Model
----
 ```mermaid
-config:
-  theme: dark
----
 erDiagram
     brand_dim {
         string brand_sk
