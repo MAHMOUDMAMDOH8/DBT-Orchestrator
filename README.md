@@ -23,12 +23,11 @@
 ---
 
 ## Approach
-
 ```mermaid
 flowchart LR;
 A[Source 1]
 B[Source 2]
-C[Staging table orders]
+C[Staing table orders]
 D[Join operation]
 F[Orders fact]
 G[Staging table products]
@@ -41,17 +40,15 @@ B -- "store 'source 2' in data_src" --> G
 
 G -- "create surrogate key" --> Gs[MD5]
 
+
 C -- "product_id AND data_src" --> D
 Gs -- "product_id AND data_src" --> D
 
-D --"Replace source foreign keys with new products surrogate keys"--> F;
 
-
----
-
-
+D --"Replace source foreign keys with new pproducts surrogate keys"--> F;
 
 ```
+
 ## Tech Stack & Tools
 
 - **DBT (Data Build Tool)**: For building and transforming data models.
