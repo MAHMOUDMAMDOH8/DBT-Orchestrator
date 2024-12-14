@@ -117,7 +117,7 @@ fact_sales: Aggregated sales metrics.
 |-----------------|----------------------------------------------|
 | `product_sk`     | MD5 Hash of cleaned `product_name`          |
 | `supplier_sk`   | MD5 Hash of cleaned `supplier_name`          |
-| `employee_sk`   | MD5 Hash of cleaned `employee_name`          |
+| `customer_sk`   | MD5 Hash of cleaned `customer_name`          |
 | `data_sk`       | MD5 Hash of cleaned `date` (from `dim_date`) |
 | `brand_sk`       | MD5 Hash of cleaned `brand|| datasource`   |
 | `store_sk`       | MD5 Hash of cleaned store_name|| datasource`   |
