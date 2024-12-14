@@ -13,6 +13,7 @@
 - [ERD (Entity-Relationship Diagram)](#erd-entity-relationship-diagram)
 - [Data Warehouse Model](#data-warehouse-model)
 - [Data Lineage](#data-lineage)
+- [Reporting](#reporting)
 
 ---
 
@@ -313,5 +314,22 @@ erDiagram
     supplier_dim ||--o| fact_sales : supplies
 ```
 ## Data Lineage
+
+
+## Reporting
+### overview
+![overview](https://github.com/user-attachments/assets/ae9de47a-25ae-4716-a479-a96f8db6a3e9)
+
+### order details 
+
+![order details](https://github.com/user-attachments/assets/02cdb1a9-7f69-47a5-afff-9aadf397433c)
+
+
+
+
+
+
+
+
 
 
